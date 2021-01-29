@@ -92,7 +92,7 @@ menu:
 # Enable / Disable menu icons / item badges.
 menu_settings:
   icons: true
-  badges: false
+  badges: true
 
 
 # ---------------------------------------------------------------
@@ -667,7 +667,7 @@ google_analytics:
 
 # Baidu Analytics
 # See: https://tongji.baidu.com
-baidu_analytics: # <app_id>
+baidu_analytics: dc886ae040c1ac44f364885df0ae4e4c
 
 # Growingio Analytics
 # See: https://www.growingio.com
