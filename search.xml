@@ -82,6 +82,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Git配置自定义日志格式</title>
+    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>Git配置自定义日志格式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SCM</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker私有仓库搭建记录</title>
     <url>/2019/07/18/Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="安装运行-docker-registry"><a href="#安装运行-docker-registry" class="headerlink" title="安装运行 docker-registry"></a>安装运行 docker-registry</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d --name registry --restart&#x3D;always \</span><br><span class="line">-p 10.12.64.80:5000:5000 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;registry&#x2F;0&#x2F;:&#x2F;var&#x2F;lib&#x2F;registry \</span><br><span class="line">registry</span><br></pre></td></tr></table></figure>
@@ -118,21 +133,6 @@
         <tag>Linux</tag>
         <tag>CentOS</tag>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git配置自定义日志格式</title>
-    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<blockquote>
-<p>Git配置自定义日志格式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>SCM</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -820,30 +820,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何在Docker中运行nginx</title>
-    <url>/2019/07/18/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnginx/</url>
-    <content><![CDATA[<h3 id="从私库镜像创建容器"><a href="#从私库镜像创建容器" class="headerlink" title="从私库镜像创建容器"></a>从私库镜像创建容器</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-d \</span><br><span class="line">-p 192.168.37.130:80:80 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;wwwroot:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;nginx:&#x2F;etc&#x2F;nginx \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">--name nginx \</span><br><span class="line">registry:5000&#x2F;nginx:1.16.1</span><br></pre></td></tr></table></figure>
-<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol>
-<li><p>nginx页面目录映射至本地<strong>wwwroot</strong>目录</p>
-</li>
-<li><p>nginx配置目录映射至本地<strong>nginx</strong>目录</p>
-</li>
-<li><p>可将nginx容器中的配置**/etc/nginx<strong>目录下内容复制到本地</strong>/data/docker/instance/nginx/0/nginx**目录下，以备做定制化修改，参考操作如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --name tmp-nginx-container -d nginx:1.16.1</span><br><span class="line">docker cp tmp-nginx-container:&#x2F;etc&#x2F;nginx&#x2F; &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;</span><br><span class="line">docker rm -f tmp-nginx-container</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>Docker</tag>
-        <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何在Docker中运行mysql</title>
     <url>/2019/05/07/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cmysql/</url>
     <content><![CDATA[<h4 id="查看docker仓库中的mysql信息"><a href="#查看docker仓库中的mysql信息" class="headerlink" title="查看docker仓库中的mysql信息"></a>查看docker仓库中的mysql信息</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure>
@@ -874,6 +850,30 @@
         <tag>CentOS</tag>
         <tag>Docker</tag>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在Docker中运行nginx</title>
+    <url>/2019/07/18/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnginx/</url>
+    <content><![CDATA[<h3 id="从私库镜像创建容器"><a href="#从私库镜像创建容器" class="headerlink" title="从私库镜像创建容器"></a>从私库镜像创建容器</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-d \</span><br><span class="line">-p 192.168.37.130:80:80 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;wwwroot:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;nginx:&#x2F;etc&#x2F;nginx \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">--name nginx \</span><br><span class="line">registry:5000&#x2F;nginx:1.16.1</span><br></pre></td></tr></table></figure>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol>
+<li><p>nginx页面目录映射至本地<strong>wwwroot</strong>目录</p>
+</li>
+<li><p>nginx配置目录映射至本地<strong>nginx</strong>目录</p>
+</li>
+<li><p>可将nginx容器中的配置**/etc/nginx<strong>目录下内容复制到本地</strong>/data/docker/instance/nginx/0/nginx**目录下，以备做定制化修改，参考操作如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --name tmp-nginx-container -d nginx:1.16.1</span><br><span class="line">docker cp tmp-nginx-container:&#x2F;etc&#x2F;nginx&#x2F; &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;</span><br><span class="line">docker rm -f tmp-nginx-container</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>Docker</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -963,6 +963,23 @@
       </tags>
   </entry>
   <entry>
+    <title>运行Docker容器后提示WARNING: IPv4 forwarding is disabled. Networking will not work.的解决方法</title>
+    <url>/2019/10/06/%E8%BF%90%E8%A1%8CDocker%E5%AE%B9%E5%99%A8%E5%90%8E%E6%8F%90%E7%A4%BAWARNING-IPv4-forwarding-is-disabled-Networking-will-not-work-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<blockquote>
+<p>打开**/usr/lib/sysctl.d/00-system.conf<strong>添加</strong>net.ipv4.ip_forward = 1**后重启网络服务</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Kernel sysctl configuration file</span><br><span class="line">#</span><br><span class="line"># For binary values, 0 is disabled, 1 is enabled.  See sysctl(8) and</span><br><span class="line"># sysctl.conf(5) for more details.</span><br><span class="line"></span><br><span class="line"># Disable netfilter on bridges.</span><br><span class="line">net.ipv4.ip_forward &#x3D; 1</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables &#x3D; 0</span><br><span class="line">net.bridge.bridge-nf-call-iptables &#x3D; 0</span><br><span class="line">net.bridge.bridge-nf-call-arptables &#x3D; 0</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设置VMware Workstation虚拟机自动启动方式</title>
     <url>/2019/05/13/%E8%AE%BE%E7%BD%AEVMware-Workstation%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<h3 id="环境和版本"><a href="#环境和版本" class="headerlink" title="环境和版本"></a>环境和版本</h3><ul>
@@ -991,29 +1008,12 @@
       </tags>
   </entry>
   <entry>
-    <title>运行Docker容器后提示WARNING: IPv4 forwarding is disabled. Networking will not work.的解决方法</title>
-    <url>/2019/10/06/%E8%BF%90%E8%A1%8CDocker%E5%AE%B9%E5%99%A8%E5%90%8E%E6%8F%90%E7%A4%BAWARNING-IPv4-forwarding-is-disabled-Networking-will-not-work-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<blockquote>
-<p>打开**/usr/lib/sysctl.d/00-system.conf<strong>添加</strong>net.ipv4.ip_forward = 1**后重启网络服务</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Kernel sysctl configuration file</span><br><span class="line">#</span><br><span class="line"># For binary values, 0 is disabled, 1 is enabled.  See sysctl(8) and</span><br><span class="line"># sysctl.conf(5) for more details.</span><br><span class="line"></span><br><span class="line"># Disable netfilter on bridges.</span><br><span class="line">net.ipv4.ip_forward &#x3D; 1</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables &#x3D; 0</span><br><span class="line">net.bridge.bridge-nf-call-iptables &#x3D; 0</span><br><span class="line">net.bridge.bridge-nf-call-arptables &#x3D; 0</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>通过Docker方式安装dnsmasq</title>
     <url>/2021/01/29/%E9%80%9A%E8%BF%87Docker%E6%96%B9%E5%BC%8F%E5%AE%89%E8%A3%85dnsmasq/</url>
     <content><![CDATA[<h3 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d\</span><br><span class="line">    --name dnsmasq_0 \</span><br><span class="line">    --restart always \</span><br><span class="line">    -p 53:53/udp \</span><br><span class="line">    -p 8053:8080 \</span><br><span class="line">    -v /data/docker/instance/dnsmasq/0/dnsmasq.conf:/etc/dnsmasq.conf \</span><br><span class="line">    --log-opt <span class="string">&quot;max-size=100m&quot;</span> \</span><br><span class="line">    -e <span class="string">&quot;HTTP_USER=user&quot;</span> \</span><br><span class="line">    -e <span class="string">&quot;HTTP_PASS=password&quot;</span> \</span><br><span class="line">    jpillora/dnsmasq</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>备注：</strong></p>
-<p>在安装成功后，运行了一段时间发现DNS服务无法正常提供，后研究发现DNS服务所在主机无法PING访问外网，请提示：connect: Network is unreachable，经研究查阅资料后解决：（配置CentOS网卡信息）</p>
+<p>在安装成功后，运行了一段时间发现DNS服务无法正常提供，后研究发现DNS服务所在主机无法PING访问外网，提示：connect: Network is unreachable，经研究查阅资料后解决：（配置CentOS网卡信息）</p>
 <p>NM_CONTROLLED=no</p>
 </blockquote>
 <h3 id="自定义配置文件dnsmasq-conf"><a href="#自定义配置文件dnsmasq-conf" class="headerlink" title="自定义配置文件dnsmasq.conf"></a>自定义配置文件<em>dnsmasq.conf</em></h3><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#dnsmasq config, for a complete example, see:</span></span><br><span class="line"><span class="comment">#  http://oss.segetech.com/intra/srv/dnsmasq.conf</span></span><br><span class="line"><span class="comment">#log all dns queries</span></span><br><span class="line"><span class="attr">log-queries</span></span><br><span class="line"><span class="comment">#dont use hosts nameservers</span></span><br><span class="line"><span class="attr">no-resolv</span></span><br><span class="line"><span class="comment">#use cloudflare as default nameservers, prefer 1^4</span></span><br><span class="line"><span class="attr">server</span>=<span class="string">114.114.114.114</span></span><br><span class="line"><span class="attr">server</span>=<span class="string">223.6.6.6</span></span><br><span class="line"><span class="attr">strict-order</span></span><br><span class="line"><span class="comment">#serve all .company queries using a specific nameserver</span></span><br><span class="line"><span class="attr">server</span>=<span class="string">/company/10.0.0.1</span></span><br><span class="line"><span class="comment">#explicitly define host-ip mappings</span></span><br><span class="line"><span class="attr">address</span>=<span class="string">/myhost.company/10.0.0.2</span></span><br><span class="line"><span class="attr">address</span>=<span class="string">/a.abc.ef/10.1.0.1</span></span><br><span class="line"><span class="attr">address</span>=<span class="string">/b.abc.ef/10.2.0.2</span></span><br></pre></td></tr></table></figure>
