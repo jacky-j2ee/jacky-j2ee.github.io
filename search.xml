@@ -27,6 +27,61 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS下安装OracleJDK</title>
+    <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
+    <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
+<p>以<strong>Java SE Development Kit 8u221</strong>为例，下载地址如下：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
+<h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
+<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
+<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS下安装docker-compose记录</title>
+    <url>/2019/12/22/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85docker-compose%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h3><blockquote>
+<p>Linux下安装</p>
+</blockquote>
+<ol>
+<li><p>运行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.25.0&#x2F;docker-compose-$(uname -s)-$(uname -m)&quot; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>要安装其他版本可以替换<code>1.25.0</code></p>
+</blockquote>
+</li>
+<li><p>赋予执行可执行权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure></li>
+<li><p>测试安装结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ docker-compose -v</span><br><span class="line">docker-compose version 1.25.0, build 0a186604</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Docker私有仓库搭建记录</title>
     <url>/2019/07/18/Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="安装运行-docker-registry"><a href="#安装运行-docker-registry" class="headerlink" title="安装运行 docker-registry"></a>安装运行 docker-registry</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d --name registry --restart&#x3D;always \</span><br><span class="line">-p 10.12.64.80:5000:5000 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;registry&#x2F;0&#x2F;:&#x2F;var&#x2F;lib&#x2F;registry \</span><br><span class="line">registry</span><br></pre></td></tr></table></figure>
@@ -66,30 +121,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS下安装OracleJDK</title>
-    <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
-    <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
-<p>以<strong>Java SE Development Kit 8u221</strong>为例，下载地址如下：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
-<h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
-<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
-<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git配置自定义日志格式</title>
     <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
     <content><![CDATA[<blockquote>
@@ -102,37 +133,6 @@
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS下安装docker-compose记录</title>
-    <url>/2019/12/22/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85docker-compose%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h3 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h3><blockquote>
-<p>Linux下安装</p>
-</blockquote>
-<ol>
-<li><p>运行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.25.0&#x2F;docker-compose-$(uname -s)-$(uname -m)&quot; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>要安装其他版本可以替换<code>1.25.0</code></p>
-</blockquote>
-</li>
-<li><p>赋予执行可执行权限</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure></li>
-<li><p>测试安装结果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ docker-compose -v</span><br><span class="line">docker-compose version 1.25.0, build 0a186604</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -837,6 +837,46 @@
 <blockquote>
 <p>通过 <a href="http://server_ip_or_name/">http://server_ip_or_name</a> 访问并配置Zabbix</p>
 </blockquote>
+<h3 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p>安装过程中碰到坑特此记录：在安装数据库环节一开始使用lnmp脚本进行数据库安装。各种规格和版本数据库全部安装过。在登录web界面配置Zabbix时候各种数据库连接不上的问题。例如：</p>
+<blockquote>
+<p>找不到目录。zabbix5 + mysql 5.7时出现这个情况</p>
+</blockquote>
+<p><img src="2021-02-03_173625.png"></p>
+<blockquote>
+<p>没有权限</p>
+<p>zabbix5 + mysql 5.7时出现这个情况</p>
+</blockquote>
+<p><img src="2021-02-03_173708.png"></p>
+<blockquote>
+<p>无法连接数据库</p>
+</blockquote>
+<p><img src="2021-02-03_174040.png"></p>
+<p>上述问题使用的组合为zabbix5 + centos7 + mysql 5.7 + nginx</p>
+<h5 id="几个解决方案"><a href="#几个解决方案" class="headerlink" title="几个解决方案"></a>几个解决方案</h5><blockquote>
+<p><code>最终改用5.5.68-MariaDB数据库并以yum安装的方式进行安装数据库lnmp是以编译方式安装</code>，整体花费时间主要还是数据库这块，安装的方式不同导致的差异使安装Zabbix过程中踩坑不断。有时间的话再更详细的研究一下。</p>
+</blockquote>
+<blockquote>
+<p>SELinux工作模式设置</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>目录不存在则创建</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
       <categories>
         <category>DevOps</category>
@@ -900,30 +940,6 @@
       </tags>
   </entry>
   <entry>
-    <title>如何在Docker中运行nginx</title>
-    <url>/2019/07/18/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnginx/</url>
-    <content><![CDATA[<h3 id="从私库镜像创建容器"><a href="#从私库镜像创建容器" class="headerlink" title="从私库镜像创建容器"></a>从私库镜像创建容器</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-d \</span><br><span class="line">-p 192.168.37.130:80:80 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;wwwroot:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;nginx:&#x2F;etc&#x2F;nginx \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">--name nginx \</span><br><span class="line">registry:5000&#x2F;nginx:1.16.1</span><br></pre></td></tr></table></figure>
-<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol>
-<li><p>nginx页面目录映射至本地<strong>wwwroot</strong>目录</p>
-</li>
-<li><p>nginx配置目录映射至本地<strong>nginx</strong>目录</p>
-</li>
-<li><p>可将nginx容器中的配置**/etc/nginx<strong>目录下内容复制到本地</strong>/data/docker/instance/nginx/0/nginx**目录下，以备做定制化修改，参考操作如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --name tmp-nginx-container -d nginx:1.16.1</span><br><span class="line">docker cp tmp-nginx-container:&#x2F;etc&#x2F;nginx&#x2F; &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;</span><br><span class="line">docker rm -f tmp-nginx-container</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>Docker</tag>
-        <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何在Docker中运行mysql</title>
     <url>/2019/05/07/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cmysql/</url>
     <content><![CDATA[<h4 id="查看docker仓库中的mysql信息"><a href="#查看docker仓库中的mysql信息" class="headerlink" title="查看docker仓库中的mysql信息"></a>查看docker仓库中的mysql信息</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure>
@@ -954,6 +970,30 @@
         <tag>CentOS</tag>
         <tag>Docker</tag>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在Docker中运行nginx</title>
+    <url>/2019/07/18/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnginx/</url>
+    <content><![CDATA[<h3 id="从私库镜像创建容器"><a href="#从私库镜像创建容器" class="headerlink" title="从私库镜像创建容器"></a>从私库镜像创建容器</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-d \</span><br><span class="line">-p 192.168.37.130:80:80 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;wwwroot:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;nginx:&#x2F;etc&#x2F;nginx \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">--name nginx \</span><br><span class="line">registry:5000&#x2F;nginx:1.16.1</span><br></pre></td></tr></table></figure>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol>
+<li><p>nginx页面目录映射至本地<strong>wwwroot</strong>目录</p>
+</li>
+<li><p>nginx配置目录映射至本地<strong>nginx</strong>目录</p>
+</li>
+<li><p>可将nginx容器中的配置**/etc/nginx<strong>目录下内容复制到本地</strong>/data/docker/instance/nginx/0/nginx**目录下，以备做定制化修改，参考操作如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --name tmp-nginx-container -d nginx:1.16.1</span><br><span class="line">docker cp tmp-nginx-container:&#x2F;etc&#x2F;nginx&#x2F; &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;</span><br><span class="line">docker rm -f tmp-nginx-container</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>Docker</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -1028,6 +1068,21 @@
       </tags>
   </entry>
   <entry>
+    <title>记录卸载macOS下mysql步骤</title>
+    <url>/2020/03/21/%E8%AE%B0%E5%BD%95%E5%8D%B8%E8%BD%BDmacOS%E4%B8%8Bmysql%E6%AD%A5%E9%AA%A4/</url>
+    <content><![CDATA[<blockquote>
+<p>在终端下执行如下命令（卸载mysql基于默认安装目录）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo rm /usr/<span class="built_in">local</span>/mysql</span><br><span class="line">sudo rm -rf /usr/<span class="built_in">local</span>/mysql*</span><br><span class="line">sudo rm -rf /Library/StartupItems/MySQLCOM</span><br><span class="line">sudo rm -rf /Library/PreferencePanes/My*</span><br><span class="line">rm -rf ~/Library/PreferencePanes/My*</span><br><span class="line">sudo rm -rf /Library/Receipts/mysql*</span><br><span class="line">sudo rm -rf /Library/Receipts/MySQL*</span><br><span class="line">sudo rm -rf /var/db/receipts/com.mysql.*</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>macOS</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>设置VMware Workstation虚拟机自动启动方式</title>
     <url>/2019/05/13/%E8%AE%BE%E7%BD%AEVMware-Workstation%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<h3 id="环境和版本"><a href="#环境和版本" class="headerlink" title="环境和版本"></a>环境和版本</h3><ul>
@@ -1053,21 +1108,6 @@
       </categories>
       <tags>
         <tag>VMware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记录卸载macOS下mysql步骤</title>
-    <url>/2020/03/21/%E8%AE%B0%E5%BD%95%E5%8D%B8%E8%BD%BDmacOS%E4%B8%8Bmysql%E6%AD%A5%E9%AA%A4/</url>
-    <content><![CDATA[<blockquote>
-<p>在终端下执行如下命令（卸载mysql基于默认安装目录）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo rm /usr/<span class="built_in">local</span>/mysql</span><br><span class="line">sudo rm -rf /usr/<span class="built_in">local</span>/mysql*</span><br><span class="line">sudo rm -rf /Library/StartupItems/MySQLCOM</span><br><span class="line">sudo rm -rf /Library/PreferencePanes/My*</span><br><span class="line">rm -rf ~/Library/PreferencePanes/My*</span><br><span class="line">sudo rm -rf /Library/Receipts/mysql*</span><br><span class="line">sudo rm -rf /Library/Receipts/MySQL*</span><br><span class="line">sudo rm -rf /var/db/receipts/com.mysql.*</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>macOS</category>
-      </categories>
-      <tags>
-        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
