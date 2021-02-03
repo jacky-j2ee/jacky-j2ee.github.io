@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://blog.realdev.cn/2021/02/03/Zabbix%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/2021-02-03_173708.png">
 <meta property="og:image" content="https://blog.realdev.cn/2021/02/03/Zabbix%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/2021-02-03_174040.png">
 <meta property="article:published_time" content="2021-02-03T06:19:49.000Z">
-<meta property="article:modified_time" content="2021-02-03T10:25:08.226Z">
+<meta property="article:modified_time" content="2021-02-03T10:38:59.718Z">
 <meta property="article:author" content="Jacky">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
@@ -202,7 +202,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Zabbix%E5%89%8D%E7%AB%AF%E7%95%8C%E9%9D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">安装Zabbix前端界面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">安装数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8AZabbix%E8%84%9A%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">初始化数据库及Zabbix脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEZabbix%E5%89%8D%E7%AB%AFPHP%E4%BF%A1%E6%81%AF"><span class="nav-number">3.1.</span> <span class="nav-text">配置Zabbix前端PHP信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">5.</span> <span class="nav-text">配置防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-number">6.</span> <span class="nav-text">备注</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">6.1.</span> <span class="nav-text">几个解决方案</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Zabbix%E5%89%8D%E7%AB%AF%E7%95%8C%E9%9D%A2"><span class="nav-number">1.1.</span> <span class="nav-text">安装Zabbix前端界面</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">安装数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%8AZabbix%E8%84%9A%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">初始化数据库及Zabbix脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEZabbix%E5%89%8D%E7%AB%AFPHP%E4%BF%A1%E6%81%AF"><span class="nav-number">3.1.</span> <span class="nav-text">配置Zabbix前端PHP信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">启动服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">5.</span> <span class="nav-text">配置防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-number">6.</span> <span class="nav-text">备注</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">6.1.</span> <span class="nav-text">几个解决方法</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -294,7 +294,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-02-03 14:19:49 / 修改时间：18:25:08" itemprop="dateCreated datePublished" datetime="2021-02-03T14:19:49+08:00">2021-02-03</time>
+      <time title="创建时间：2021-02-03 14:19:49 / 修改时间：18:38:59" itemprop="dateCreated datePublished" datetime="2021-02-03T14:19:49+08:00">2021-02-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -414,8 +414,7 @@
 </blockquote>
 <p><img src="2021-02-03_173625.png"></p>
 <blockquote>
-<p>没有权限</p>
-<p>zabbix5 + mysql 5.7时出现这个情况</p>
+<p>没有权限。zabbix5 + mysql 5.7时出现这个情况</p>
 </blockquote>
 <p><img src="2021-02-03_173708.png"></p>
 <blockquote>
@@ -423,7 +422,7 @@
 </blockquote>
 <p><img src="2021-02-03_174040.png"></p>
 <p>上述问题使用的组合为zabbix5 + centos7 + mysql 5.7 + nginx</p>
-<h4 id="几个解决方案"><a href="#几个解决方案" class="headerlink" title="几个解决方案"></a>几个解决方案</h4><blockquote>
+<h4 id="几个解决方法"><a href="#几个解决方法" class="headerlink" title="几个解决方法"></a>几个解决方法</h4><blockquote>
 <p><code>最终改用5.5.68-MariaDB数据库并以yum安装的方式进行安装数据库。lnmp是以编译方式安装。</code>整体花费时间主要还是数据库这块，安装的方式不同导致的差异使安装Zabbix过程中踩坑不断。有时间的话再更详细的研究一下。</p>
 </blockquote>
 <blockquote>
