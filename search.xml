@@ -27,6 +27,30 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS下安装OracleJDK</title>
+    <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
+    <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
+<p>以<strong>Java SE Development Kit 8u221</strong>为例，下载地址如下：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
+<h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
+<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
+<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS下安装docker-compose记录</title>
     <url>/2019/12/22/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85docker-compose%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h3><blockquote>
@@ -70,30 +94,6 @@
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS下安装OracleJDK</title>
-    <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
-    <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
-<p>以<strong>Java SE Development Kit 8u221</strong>为例，下载地址如下：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
-<h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
-<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
-<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -857,7 +857,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sestatus</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SELinux status: enabled</span><br><span class="line">SELinuxfs mount: /sys/fs/selinux</span><br><span class="line">SELinux root directory: /etc/selinux</span><br><span class="line">Loaded policy name: targeted</span><br><span class="line">Current mode: enforcing</span><br><span class="line">Mode from config file: enforcing</span><br><span class="line">Policy MLS status: enabled</span><br><span class="line">Policy deny_unknown status: allowed</span><br><span class="line">Memory protection checking: actual (secure)</span><br><span class="line">Max kernel policy version: 31</span><br></pre></td></tr></table></figure>
 <h4 id="为Zabbix创建SELinux补充策略"><a href="#为Zabbix创建SELinux补充策略" class="headerlink" title="为Zabbix创建SELinux补充策略"></a>为Zabbix创建SELinux补充策略</h4><blockquote>
-<p>为审核日志中的每个错误创建SELinux补充策略<br>可能需要如下工具，如果没有先安装</p>
+<p>为审核日志中的每个错误创建SELinux补充策略。可能需要如下工具，如果没有先安装</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CentOS8</span></span><br><span class="line">dnf -y install policycoreutils-python-utils</span><br><span class="line"><span class="comment"># Centos7</span></span><br><span class="line">yum -y install policycoreutils-python-utils</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -891,7 +891,7 @@
 <blockquote>
 <p>目录不存在则创建</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /var/lib/mysql</span><br><span class="line">ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
 <h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><ul>
 <li><a href="https://bestmonitoringtools.com/how-to-install-zabbix-server-on-centos-or-rhel/">How to Install Zabbix 5.0 or 5.2 on CentOS 8 Step-by-Step</a></li>
 <li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-introduction-selinux_modes">SELINUX STATES AND MODES</a></li>
