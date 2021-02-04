@@ -58,6 +58,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Git配置自定义日志格式</title>
+    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>Git配置自定义日志格式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SCM</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS下安装OracleJDK</title>
     <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
     <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
@@ -118,21 +133,6 @@
         <tag>Linux</tag>
         <tag>CentOS</tag>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git配置自定义日志格式</title>
-    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<blockquote>
-<p>Git配置自定义日志格式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>SCM</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -833,18 +833,18 @@
 <p>编辑<code>/etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf</code>及设置正确的时区</p>
 </blockquote>
 <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">...</span></span><br><span class="line"><span class="meta">listen.acl_users</span> = <span class="string">apache,nginx</span></span><br><span class="line"><span class="meta">php_value[date.timezone]</span> = <span class="string">Europe/Riga</span></span><br><span class="line"><span class="attr">...</span></span><br></pre></td></tr></table></figure>
-<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart zabbix-server zabbix-agent rh-nginx116-nginx rh-php72-php-fpm</span><br><span class="line">systemctl <span class="built_in">enable</span> zabbix-server zabbix-agent rh-nginx116-nginx rh-php72-php-fpm</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>通过 <a href="http://server_ip_or_name/">http://server_ip_or_name</a> 访问并配置Zabbix</p>
-</blockquote>
-<h3 id="配置防火墙及SELinux"><a href="#配置防火墙及SELinux" class="headerlink" title="配置防火墙及SELinux"></a>配置防火墙及SELinux</h3><blockquote>
+<h3 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h3><blockquote>
 <p>HTTP端口放行</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-service=http --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>SELinux工作模式设置</p>
+<p>临时设置SELinux工作模式设置</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart zabbix-server zabbix-agent rh-nginx116-nginx rh-php72-php-fpm</span><br><span class="line">systemctl <span class="built_in">enable</span> zabbix-server zabbix-agent rh-nginx116-nginx rh-php72-php-fpm</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>通过 <a href="http://server_ip_or_name/">http://server_ip_or_name</a> 访问并配置Zabbix</p>
+</blockquote>
 <h3 id="在Zabbix上启用和配置SELinux"><a href="#在Zabbix上启用和配置SELinux" class="headerlink" title="在Zabbix上启用和配置SELinux"></a>在Zabbix上启用和配置SELinux</h3><h4 id="允许http守护程序连接到Zabbix"><a href="#允许http守护程序连接到Zabbix" class="headerlink" title="允许http守护程序连接到Zabbix"></a>允许http守护程序连接到Zabbix</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setsebool -P httpd_can_connect_zabbix 1</span><br></pre></td></tr></table></figure>
 <h4 id="允许Zabbix连接到所有TCP端口"><a href="#允许Zabbix连接到所有TCP端口" class="headerlink" title="允许Zabbix连接到所有TCP端口"></a>允许Zabbix连接到所有TCP端口</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">setsebool -P zabbix_can_network 1</span><br></pre></td></tr></table></figure>
 <h4 id="设置SELinux在强制模式下工作"><a href="#设置SELinux在强制模式下工作" class="headerlink" title="设置SELinux在强制模式下工作"></a>设置SELinux在强制模式下工作</h4><blockquote>
