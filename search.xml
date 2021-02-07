@@ -51,37 +51,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS下安装docker-compose记录</title>
-    <url>/2019/12/22/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85docker-compose%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h3 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h3><blockquote>
-<p>Linux下安装</p>
-</blockquote>
-<ol>
-<li><p>运行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.25.0&#x2F;docker-compose-$(uname -s)-$(uname -m)&quot; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>要安装其他版本可以替换<code>1.25.0</code></p>
-</blockquote>
-</li>
-<li><p>赋予执行可执行权限</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure></li>
-<li><p>测试安装结果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ docker-compose -v</span><br><span class="line">docker-compose version 1.25.0, build 0a186604</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker私有仓库搭建记录</title>
     <url>/2019/07/18/Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="安装运行-docker-registry"><a href="#安装运行-docker-registry" class="headerlink" title="安装运行 docker-registry"></a>安装运行 docker-registry</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d --name registry --restart&#x3D;always \</span><br><span class="line">-p 10.12.64.80:5000:5000 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;registry&#x2F;0&#x2F;:&#x2F;var&#x2F;lib&#x2F;registry \</span><br><span class="line">registry</span><br></pre></td></tr></table></figure>
@@ -108,6 +77,37 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;&quot;insecure-registries&quot;:[&quot;registry:5000&quot;]&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>查看私有仓库镜像</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -XGET registry:5000&#x2F;v2&#x2F;_catalog</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS下安装docker-compose记录</title>
+    <url>/2019/12/22/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85docker-compose%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h3><blockquote>
+<p>Linux下安装</p>
+</blockquote>
+<ol>
+<li><p>运行如下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.25.0&#x2F;docker-compose-$(uname -s)-$(uname -m)&quot; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>要安装其他版本可以替换<code>1.25.0</code></p>
+</blockquote>
+</li>
+<li><p>赋予执行可执行权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure></li>
+<li><p>测试安装结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ docker-compose -v</span><br><span class="line">docker-compose version 1.25.0, build 0a186604</span><br></pre></td></tr></table></figure>
+
+
 </li>
 </ol>
 ]]></content>
@@ -904,6 +904,7 @@
 <h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><ul>
 <li><a href="https://bestmonitoringtools.com/how-to-install-zabbix-server-on-centos-or-rhel/">How to Install Zabbix 5.0 or 5.2 on CentOS 8 Step-by-Step</a></li>
 <li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-introduction-selinux_modes">SELINUX STATES AND MODES</a></li>
+<li><a href="https://blog.csdn.net/weixin_44271499/article/details/110405250">zabbix部署与安装</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -928,6 +929,39 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>如何在Docker中运行mysql</title>
+    <url>/2019/05/07/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cmysql/</url>
+    <content><![CDATA[<h4 id="查看docker仓库中的mysql信息"><a href="#查看docker仓库中的mysql信息" class="headerlink" title="查看docker仓库中的mysql信息"></a>查看docker仓库中的mysql信息</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure>
+<h4 id="获取mysql镜像"><a href="#获取mysql镜像" class="headerlink" title="获取mysql镜像"></a>获取mysql镜像</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull mysql:5.7.23</span><br></pre></td></tr></table></figure>
+<h4 id="启动mysql镜像"><a href="#启动mysql镜像" class="headerlink" title="启动mysql镜像"></a>启动mysql镜像</h4><h5 id="随容器自动启动"><a href="#随容器自动启动" class="headerlink" title="随容器自动启动"></a>随容器自动启动</h5><blockquote>
+<p>方式一：通过映射目录方式挂载目录</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --restart&#x3D;always --name mysql \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;mysql&#x2F;0&#x2F;db:&#x2F;var&#x2F;lib&#x2F;mysql \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;mysql&#x2F;0&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD&#x3D;123456 -d -p 10.12.64.90:3306:3306 mysql:5.7.23</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>方式二：通过卷的方式挂载目录</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --restart&#x3D;always --name mysql \</span><br><span class="line">-v mysql_db_v1:&#x2F;var&#x2F;lib&#x2F;mysql \</span><br><span class="line">-v mysql_conf_v1:&#x2F;etc&#x2F;mysql&#x2F;conf.d \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD&#x3D;123456 -d -p 3306:3306 mysql:5.7.23</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>备注：<code>--restart=always</code>可以替换成<code>--rm</code>表示容器停止后不保留历史记录(2者不能同时使用)。<code>mysql_data_v1</code>用于装载mysql数据，<code>mysql_conf_v1</code>用于装载mysql的配置。如果卷不存在docker会自动创建。</p>
+</blockquote>
+<h4 id="自定义配置文件"><a href="#自定义配置文件" class="headerlink" title="自定义配置文件"></a>自定义配置文件</h4><blockquote>
+<p>mysql使用utf8mb4方式配置:<code>/data/docker/instance/mysql/0/conf</code>为自定义配置的目录，该目录下的cnf文件将随容器启动时合并至mysql中</p>
+</blockquote>
+<h5 id="编辑文件"><a href="#编辑文件" class="headerlink" title="编辑文件"></a>编辑文件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi my.cnf</span><br></pre></td></tr></table></figure>
+<h5 id="修改内容"><a href="#修改内容" class="headerlink" title="修改内容"></a>修改内容</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[client]</span><br><span class="line">default-character-set&#x3D;utf8mb4</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set&#x3D;utf8mb4</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">sql_mode&#x3D;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br><span class="line">lower_case_table_names &#x3D; 1</span><br><span class="line">character-set-client-handshake&#x3D;FALSE</span><br><span class="line">character-set-server&#x3D;utf8mb4</span><br><span class="line">collation-server&#x3D;utf8mb4_unicode_ci</span><br><span class="line">init_connect&#x3D;&#39;SET NAMES utf8mb4&#39;</span><br><span class="line">skip-host-cache</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure>
+<h4 id="重启容易使配置生效"><a href="#重启容易使配置生效" class="headerlink" title="重启容易使配置生效"></a>重启容易使配置生效</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker restart mysql</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>Docker</tag>
+        <tag>mysql</tag>
+      </tags>
   </entry>
   <entry>
     <title>macOS安装oh-my-zsh记录</title>
@@ -965,39 +999,6 @@
       </categories>
       <tags>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在Docker中运行mysql</title>
-    <url>/2019/05/07/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cmysql/</url>
-    <content><![CDATA[<h4 id="查看docker仓库中的mysql信息"><a href="#查看docker仓库中的mysql信息" class="headerlink" title="查看docker仓库中的mysql信息"></a>查看docker仓库中的mysql信息</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure>
-<h4 id="获取mysql镜像"><a href="#获取mysql镜像" class="headerlink" title="获取mysql镜像"></a>获取mysql镜像</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull mysql:5.7.23</span><br></pre></td></tr></table></figure>
-<h4 id="启动mysql镜像"><a href="#启动mysql镜像" class="headerlink" title="启动mysql镜像"></a>启动mysql镜像</h4><h5 id="随容器自动启动"><a href="#随容器自动启动" class="headerlink" title="随容器自动启动"></a>随容器自动启动</h5><blockquote>
-<p>方式一：通过映射目录方式挂载目录</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --restart&#x3D;always --name mysql \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;mysql&#x2F;0&#x2F;db:&#x2F;var&#x2F;lib&#x2F;mysql \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;mysql&#x2F;0&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD&#x3D;123456 -d -p 10.12.64.90:3306:3306 mysql:5.7.23</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>方式二：通过卷的方式挂载目录</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --restart&#x3D;always --name mysql \</span><br><span class="line">-v mysql_db_v1:&#x2F;var&#x2F;lib&#x2F;mysql \</span><br><span class="line">-v mysql_conf_v1:&#x2F;etc&#x2F;mysql&#x2F;conf.d \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD&#x3D;123456 -d -p 3306:3306 mysql:5.7.23</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>备注：<code>--restart=always</code>可以替换成<code>--rm</code>表示容器停止后不保留历史记录(2者不能同时使用)。<code>mysql_data_v1</code>用于装载mysql数据，<code>mysql_conf_v1</code>用于装载mysql的配置。如果卷不存在docker会自动创建。</p>
-</blockquote>
-<h4 id="自定义配置文件"><a href="#自定义配置文件" class="headerlink" title="自定义配置文件"></a>自定义配置文件</h4><blockquote>
-<p>mysql使用utf8mb4方式配置:<code>/data/docker/instance/mysql/0/conf</code>为自定义配置的目录，该目录下的cnf文件将随容器启动时合并至mysql中</p>
-</blockquote>
-<h5 id="编辑文件"><a href="#编辑文件" class="headerlink" title="编辑文件"></a>编辑文件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi my.cnf</span><br></pre></td></tr></table></figure>
-<h5 id="修改内容"><a href="#修改内容" class="headerlink" title="修改内容"></a>修改内容</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[client]</span><br><span class="line">default-character-set&#x3D;utf8mb4</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set&#x3D;utf8mb4</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">sql_mode&#x3D;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br><span class="line">lower_case_table_names &#x3D; 1</span><br><span class="line">character-set-client-handshake&#x3D;FALSE</span><br><span class="line">character-set-server&#x3D;utf8mb4</span><br><span class="line">collation-server&#x3D;utf8mb4_unicode_ci</span><br><span class="line">init_connect&#x3D;&#39;SET NAMES utf8mb4&#39;</span><br><span class="line">skip-host-cache</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure>
-<h4 id="重启容易使配置生效"><a href="#重启容易使配置生效" class="headerlink" title="重启容易使配置生效"></a>重启容易使配置生效</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker restart mysql</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>Docker</tag>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
