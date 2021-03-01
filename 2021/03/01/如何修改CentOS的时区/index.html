@@ -23,24 +23,22 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"blog.realdev.cn","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="使用Docker搭建nginx的简易方法...">
+<meta name="description" content="修改CentOS的时区的方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在Docker中运行nginx">
-<meta property="og:url" content="https://blog.realdev.cn/2019/07/18/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnginx/index.html">
+<meta property="og:title" content="如何修改CentOS的时区">
+<meta property="og:url" content="https://blog.realdev.cn/2021/03/01/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9CentOS%E7%9A%84%E6%97%B6%E5%8C%BA/index.html">
 <meta property="og:site_name" content="REALDEV">
-<meta property="og:description" content="使用Docker搭建nginx的简易方法...">
+<meta property="og:description" content="修改CentOS的时区的方法">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-07-18T07:31:26.000Z">
-<meta property="article:modified_time" content="2020-05-27T10:50:55.279Z">
+<meta property="article:published_time" content="2021-03-01T08:23:21.000Z">
+<meta property="article:modified_time" content="2021-03-01T08:39:44.345Z">
 <meta property="article:author" content="Jacky">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="CentOS">
-<meta property="article:tag" content="Docker">
-<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.realdev.cn/2019/07/18/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnginx/">
+<link rel="canonical" href="https://blog.realdev.cn/2021/03/01/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9CentOS%E7%9A%84%E6%97%B6%E5%8C%BA/">
 
 
 <script class="page-configurations">
@@ -52,7 +50,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>如何在Docker中运行nginx | REALDEV</title>
+<title>如何修改CentOS的时区 | REALDEV</title>
   
 
   <script>
@@ -199,7 +197,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%A7%81%E5%BA%93%E9%95%9C%E5%83%8F%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">从私库镜像创建容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-number">2.</span> <span class="nav-text">备注</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">执行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">其他命令</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -266,7 +264,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.realdev.cn/2019/07/18/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnginx/">
+    <link itemprop="mainEntityOfPage" href="https://blog.realdev.cn/2021/03/01/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9CentOS%E7%9A%84%E6%97%B6%E5%8C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -279,7 +277,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何在Docker中运行nginx
+          如何修改CentOS的时区
         </h1>
 
         <div class="post-meta-container">
@@ -289,16 +287,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2019-07-18 15:31:26" itemprop="dateCreated datePublished" datetime="2019-07-18T15:31:26+08:00">2019-07-18</time>
+      <time title="创建时间：2021-03-01 16:23:21 / 修改时间：16:39:44" itemprop="dateCreated datePublished" datetime="2021-03-01T16:23:21+08:00">2021-03-01</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-05-27 18:50:55" itemprop="dateModified" datetime="2020-05-27T18:50:55+08:00">2020-05-27</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -324,18 +316,18 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>651</span>
+      <span>3.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
-            <div class="post-description">使用Docker搭建nginx的简易方法...</div>
+            <div class="post-description">修改CentOS的时区的方法</div>
         </div>
       </header>
 
@@ -343,17 +335,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="从私库镜像创建容器"><a href="#从私库镜像创建容器" class="headerlink" title="从私库镜像创建容器"></a>从私库镜像创建容器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-d \</span><br><span class="line">-p 192.168.37.130:80:80 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;wwwroot:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;nginx:&#x2F;etc&#x2F;nginx \</span><br><span class="line">--restart&#x3D;always \</span><br><span class="line">--name nginx \</span><br><span class="line">registry:5000&#x2F;nginx:1.16.1</span><br></pre></td></tr></table></figure>
-<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><ol>
-<li><p>nginx页面目录映射至本地<strong>wwwroot</strong>目录</p>
-</li>
-<li><p>nginx配置目录映射至本地<strong>nginx</strong>目录</p>
-</li>
-<li><p>可将nginx容器中的配置**/etc/nginx<strong>目录下内容复制到本地</strong>/data/docker/instance/nginx/0/nginx**目录下，以备做定制化修改，参考操作如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --name tmp-nginx-container -d nginx:1.16.1</span><br><span class="line">docker cp tmp-nginx-container:&#x2F;etc&#x2F;nginx&#x2F; &#x2F;data&#x2F;docker&#x2F;instance&#x2F;nginx&#x2F;0&#x2F;</span><br><span class="line">docker rm -f tmp-nginx-container</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
+        <h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3><blockquote>
+<p>查看当前系统时区</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># ll /etc/localtime </span></span><br><span class="line">lrwxrwxrwx. 1 root root 38 Jun 12  2020 /etc/localtime -&gt; ../usr/share/zoneinfo/America/New_York</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>更改时区</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># rm /etc/localtime</span></span><br><span class="line">[root@centos7 ~]<span class="comment"># ln -s /usr/share/zoneinfo/Asia/Chongqing /etc/localtime</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><blockquote>
+<p>查看时区列表</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># ll /usr/share/zoneinfo/</span></span><br><span class="line">total 396</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Africa</span><br><span class="line">drwxr-xr-x.  6 root root   8192 Jun 12  2020 America</span><br><span class="line">drwxr-xr-x.  2 root root    187 Jun 12  2020 Antarctica</span><br><span class="line">drwxr-xr-x.  2 root root     26 Jun 12  2020 Arctic</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Asia</span><br><span class="line">drwxr-xr-x.  2 root root    196 Jun 12  2020 Atlantic</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Australia</span><br><span class="line">drwxr-xr-x.  2 root root     59 Jun 12  2020 Brazil</span><br><span class="line">drwxr-xr-x.  2 root root    136 Jun 12  2020 Canada</span><br><span class="line">-rw-r--r--.  1 root root   2102 May  9  2018 CET</span><br><span class="line">drwxr-xr-x.  2 root root     45 Jun 12  2020 Chile</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 CST6CDT</span><br><span class="line">-rw-r--r--.  2 root root   2411 May  9  2018 Cuba</span><br><span class="line">-rw-r--r--.  1 root root   1876 May  9  2018 EET</span><br><span class="line">-rw-r--r--.  2 root root   1946 May  9  2018 Egypt</span><br><span class="line">-rw-r--r--.  2 root root   3517 May  9  2018 Eire</span><br><span class="line">-rw-r--r--.  1 root root    118 May  9  2018 EST</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 EST5EDT</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Etc</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Europe</span><br><span class="line">-rw-r--r--.  7 root root   3661 May  9  2018 GB</span><br><span class="line">-rw-r--r--.  7 root root   3661 May  9  2018 GB-Eire</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT-0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT+0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 Greenwich</span><br><span class="line">-rw-r--r--.  2 root root   1175 May  9  2018 Hongkong</span><br><span class="line">-rw-r--r--.  1 root root    119 May  9  2018 HST</span><br><span class="line">-rw-r--r--.  2 root root   1174 May  9  2018 Iceland</span><br><span class="line">drwxr-xr-x.  2 root root    176 Jun 12  2020 Indian</span><br><span class="line">-rw-r--r--.  2 root root   1690 May  9  2018 Iran</span><br><span class="line">-rw-r--r--.  1 root root   4445 Mar  1  2017 iso3166.tab</span><br><span class="line">-rw-r--r--.  3 root root   8981 May  9  2018 Israel</span><br><span class="line">-rw-r--r--.  2 root root    481 May  9  2018 Jamaica</span><br><span class="line">-rw-r--r--.  2 root root    292 May  9  2018 Japan</span><br><span class="line">-rw-r--r--.  2 root root    219 May  9  2018 Kwajalein</span><br><span class="line">-rw-r--r--.  1 root root   2196 Jan 16  2018 leapseconds</span><br><span class="line">-rw-r--r--.  2 root root    641 May  9  2018 Libya</span><br><span class="line">-rw-r--r--.  1 root root   2102 May  9  2018 MET</span><br><span class="line">drwxr-xr-x.  2 root root     53 Jun 12  2020 Mexico</span><br><span class="line">-rw-r--r--.  1 root root    118 May  9  2018 MST</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 MST7MDT</span><br><span class="line">-rw-r--r--.  4 root root   2427 May  9  2018 Navajo</span><br><span class="line">-rw-r--r--.  4 root root   2434 May  9  2018 NZ</span><br><span class="line">-rw-r--r--.  2 root root   2047 May  9  2018 NZ-CHAT</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Pacific</span><br><span class="line">-rw-r--r--.  2 root root   2679 May  9  2018 Poland</span><br><span class="line">-rw-r--r--.  2 root root   3455 May  9  2018 Portugal</span><br><span class="line">drwxr-xr-x. 18 root root   4096 Jun 12  2020 posix</span><br><span class="line">-rw-r--r--.  3 root root   3519 May  9  2018 posixrules</span><br><span class="line">-rw-r--r--.  5 root root    388 May  9  2018 PRC</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 PST8PDT</span><br><span class="line">drwxr-xr-x. 18 root root   4096 Jun 12  2020 right</span><br><span class="line">-rw-r--r--.  2 root root    764 May  9  2018 ROC</span><br><span class="line">-rw-r--r--.  2 root root    517 May  9  2018 ROK</span><br><span class="line">-rw-r--r--.  2 root root    384 May  9  2018 Singapore</span><br><span class="line">-rw-r--r--.  3 root root   2126 May  9  2018 Turkey</span><br><span class="line">-rw-r--r--.  1 root root 106683 May  9  2018 tzdata.zi</span><br><span class="line">-rw-r--r--.  2 root root    118 May  9  2018 UCT</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 Universal</span><br><span class="line">drwxr-xr-x.  2 root root    216 Jun 12  2020 US</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 UTC</span><br><span class="line">-rw-r--r--.  1 root root   1873 May  9  2018 WET</span><br><span class="line">-rw-r--r--.  2 root root   1518 May  9  2018 W-SU</span><br><span class="line">-rw-r--r--.  1 root root  17781 Feb 17  2018 zone1970.tab</span><br><span class="line">-rw-r--r--.  1 root root  19165 Feb 17  2018 zone.tab</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 Zulu</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看时间信息</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># timedatectl status</span></span><br><span class="line">      Local time: Mon 2021-03-01 03:12:56 EST</span><br><span class="line">  Universal time: Mon 2021-03-01 08:12:56 UTC</span><br><span class="line">        RTC time: Mon 2021-03-01 08:12:57</span><br><span class="line">       Time zone: America/New_York (EST, -0500)</span><br><span class="line">     NTP enabled: yes</span><br><span class="line">NTP synchronized: yes</span><br><span class="line"> RTC <span class="keyword">in</span> <span class="built_in">local</span> TZ: no</span><br><span class="line">      DST active: no</span><br><span class="line"> Last DST change: DST ended at</span><br><span class="line">                  Sun 2020-11-01 01:59:59 EDT</span><br><span class="line">                  Sun 2020-11-01 01:00:00 EST</span><br><span class="line"> Next DST change: DST begins (the clock jumps one hour forward) at</span><br><span class="line">                  Sun 2021-03-14 01:59:59 EST</span><br><span class="line">                  Sun 2021-03-14 03:00:00 EDT</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -370,7 +367,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://blog.realdev.cn/2019/07/18/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnginx/" title="如何在Docker中运行nginx">https://blog.realdev.cn/2019/07/18/如何在Docker中运行nginx/</a>
+      <a href="https://blog.realdev.cn/2021/03/01/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9CentOS%E7%9A%84%E6%97%B6%E5%8C%BA/" title="如何修改CentOS的时区">https://blog.realdev.cn/2021/03/01/如何修改CentOS的时区/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -381,22 +378,17 @@
           <div class="post-tags">
               <a href="/tags/Linux/" rel="tag"># Linux</a>
               <a href="/tags/CentOS/" rel="tag"># CentOS</a>
-              <a href="/tags/Docker/" rel="tag"># Docker</a>
-              <a href="/tags/nginx/" rel="tag"># nginx</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2019/07/18/Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/" rel="prev" title="Docker私有仓库搭建记录">
-                  <i class="fa fa-chevron-left"></i> Docker私有仓库搭建记录
+                <a href="/2021/02/08/zabbix-agent%E7%9A%84%E5%AE%89%E8%A3%85/" rel="prev" title="zabbix-agent的安装">
+                  <i class="fa fa-chevron-left"></i> zabbix-agent的安装
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2019/07/22/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Credis/" rel="next" title="如何在Docker中运行redis">
-                  如何在Docker中运行redis <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
