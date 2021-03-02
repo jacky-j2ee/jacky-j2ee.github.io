@@ -82,21 +82,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git配置自定义日志格式</title>
-    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<blockquote>
-<p>Git配置自定义日志格式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>SCM</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker私有仓库搭建记录</title>
     <url>/2019/07/18/Docker%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="安装运行-docker-registry"><a href="#安装运行-docker-registry" class="headerlink" title="安装运行 docker-registry"></a>安装运行 docker-registry</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d --name registry --restart&#x3D;always \</span><br><span class="line">-p 10.12.64.80:5000:5000 \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;registry&#x2F;0&#x2F;:&#x2F;var&#x2F;lib&#x2F;registry \</span><br><span class="line">registry</span><br></pre></td></tr></table></figure>
@@ -151,6 +136,21 @@
       </categories>
       <tags>
         <tag>IntelliJ IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git配置自定义日志格式</title>
+    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>Git配置自定义日志格式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SCM</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -768,20 +768,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/05/07/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Zabbix安装记录</title>
     <url>/2021/02/03/Zabbix%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>按照<a href="https://www.zabbix.com/download">官方网站</a>的流程选择合适的版本。当前使用的是<code>Zabbix Packages</code>途径安装。</p>
@@ -915,6 +901,7 @@
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /var/lib/mysql</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock</span><br></pre></td></tr></table></figure>
+<h4 id="安装完成后可以修改Zabbix-GUI-configuration-file进行调整"><a href="#安装完成后可以修改Zabbix-GUI-configuration-file进行调整" class="headerlink" title="安装完成后可以修改Zabbix GUI configuration file进行调整"></a>安装完成后可以修改Zabbix GUI configuration file进行调整</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@zabbix ~]<span class="comment"># cat /etc/zabbix/web/zabbix.conf.php</span></span><br><span class="line">&lt;?php</span><br><span class="line">// Zabbix GUI configuration file.</span><br><span class="line"></span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;TYPE&#x27;</span>]				= <span class="string">&#x27;MYSQL&#x27;</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;SERVER&#x27;</span>]			= <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;PORT&#x27;</span>]				= <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;DATABASE&#x27;</span>]			= <span class="string">&#x27;zabbix&#x27;</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;USER&#x27;</span>]				= <span class="string">&#x27;zabbix&#x27;</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;PASSWORD&#x27;</span>]			= <span class="string">&#x27;zabbix&#x27;</span>;</span><br><span class="line"></span><br><span class="line">// Schema name. Used <span class="keyword">for</span> PostgreSQL.</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;SCHEMA&#x27;</span>]			= <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">// Used <span class="keyword">for</span> TLS connection.</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;ENCRYPTION&#x27;</span>]		= <span class="literal">false</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;KEY_FILE&#x27;</span>]			= <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;CERT_FILE&#x27;</span>]		= <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;CA_FILE&#x27;</span>]			= <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;VERIFY_HOST&#x27;</span>]		= <span class="literal">false</span>;</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;CIPHER_LIST&#x27;</span>]		= <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">// Use IEEE754 compatible value range <span class="keyword">for</span> 64-bit Numeric (<span class="built_in">float</span>) <span class="built_in">history</span> values.</span><br><span class="line">// This option is enabled by default <span class="keyword">for</span> new Zabbix installations.</span><br><span class="line">// For upgraded installations, please <span class="built_in">read</span> database upgrade notes before enabling this option.</span><br><span class="line"><span class="variable">$DB</span>[<span class="string">&#x27;DOUBLE_IEEE754&#x27;</span>]	= <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$ZBX_SERVER</span>				= <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line"><span class="variable">$ZBX_SERVER_PORT</span>		= <span class="string">&#x27;10051&#x27;</span>;</span><br><span class="line"><span class="variable">$ZBX_SERVER_NAME</span>		= <span class="string">&#x27;ZABBIX SERVER&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$IMAGE_FORMAT_DEFAULT</span>	= IMAGE_FORMAT_PNG;</span><br><span class="line"></span><br><span class="line">// Uncomment this block only <span class="keyword">if</span> you are using Elasticsearch.</span><br><span class="line">// Elasticsearch url (can be string <span class="keyword">if</span> same url is used <span class="keyword">for</span> all types).</span><br><span class="line">//<span class="variable">$HISTORY</span>[<span class="string">&#x27;url&#x27;</span>] = [</span><br><span class="line">//	<span class="string">&#x27;uint&#x27;</span> =&gt; <span class="string">&#x27;http://localhost:9200&#x27;</span>,</span><br><span class="line">//	<span class="string">&#x27;text&#x27;</span> =&gt; <span class="string">&#x27;http://localhost:9200&#x27;</span></span><br><span class="line">//];</span><br><span class="line">// Value types stored <span class="keyword">in</span> Elasticsearch.</span><br><span class="line">//<span class="variable">$HISTORY</span>[<span class="string">&#x27;types&#x27;</span>] = [<span class="string">&#x27;uint&#x27;</span>, <span class="string">&#x27;text&#x27;</span>];</span><br><span class="line"></span><br><span class="line">// Used <span class="keyword">for</span> SAML authentication.</span><br><span class="line">// Uncomment to override the default paths to SP private key, SP and IdP X.509 certificates, and to <span class="built_in">set</span> extra settings.</span><br><span class="line">//<span class="variable">$SSO</span>[<span class="string">&#x27;SP_KEY&#x27;</span>]			= <span class="string">&#x27;conf/certs/sp.key&#x27;</span>;</span><br><span class="line">//<span class="variable">$SSO</span>[<span class="string">&#x27;SP_CERT&#x27;</span>]			= <span class="string">&#x27;conf/certs/sp.crt&#x27;</span>;</span><br><span class="line">//<span class="variable">$SSO</span>[<span class="string">&#x27;IDP_CERT&#x27;</span>]		= <span class="string">&#x27;conf/certs/idp.crt&#x27;</span>;</span><br><span class="line">//<span class="variable">$SSO</span>[<span class="string">&#x27;SETTINGS&#x27;</span>]		= [];</span><br></pre></td></tr></table></figure>
 <h4 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h4><ul>
 <li><a href="https://bestmonitoringtools.com/how-to-install-zabbix-server-on-centos-or-rhel/">How to Install Zabbix 5.0 or 5.2 on CentOS 8 Step-by-Step</a></li>
 <li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-introduction-selinux_modes">SELINUX STATES AND MODES</a></li>
@@ -929,6 +916,20 @@
         <tag>CentOS</tag>
         <tag>Zabbix</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/05/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>macOS安装oh-my-zsh记录</title>
@@ -969,6 +970,33 @@
       </tags>
   </entry>
   <entry>
+    <title>如何修改CentOS的时区</title>
+    <url>/2021/03/01/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9CentOS%E7%9A%84%E6%97%B6%E5%8C%BA/</url>
+    <content><![CDATA[<h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3><blockquote>
+<p>查看当前系统时区</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># ll /etc/localtime </span></span><br><span class="line">lrwxrwxrwx. 1 root root 38 Jun 12  2020 /etc/localtime -&gt; ../usr/share/zoneinfo/America/New_York</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>更改时区</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># rm /etc/localtime</span></span><br><span class="line">[root@centos7 ~]<span class="comment"># ln -s /usr/share/zoneinfo/Asia/Chongqing /etc/localtime</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><blockquote>
+<p>查看时区列表</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># ll /usr/share/zoneinfo/</span></span><br><span class="line">total 396</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Africa</span><br><span class="line">drwxr-xr-x.  6 root root   8192 Jun 12  2020 America</span><br><span class="line">drwxr-xr-x.  2 root root    187 Jun 12  2020 Antarctica</span><br><span class="line">drwxr-xr-x.  2 root root     26 Jun 12  2020 Arctic</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Asia</span><br><span class="line">drwxr-xr-x.  2 root root    196 Jun 12  2020 Atlantic</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Australia</span><br><span class="line">drwxr-xr-x.  2 root root     59 Jun 12  2020 Brazil</span><br><span class="line">drwxr-xr-x.  2 root root    136 Jun 12  2020 Canada</span><br><span class="line">-rw-r--r--.  1 root root   2102 May  9  2018 CET</span><br><span class="line">drwxr-xr-x.  2 root root     45 Jun 12  2020 Chile</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 CST6CDT</span><br><span class="line">-rw-r--r--.  2 root root   2411 May  9  2018 Cuba</span><br><span class="line">-rw-r--r--.  1 root root   1876 May  9  2018 EET</span><br><span class="line">-rw-r--r--.  2 root root   1946 May  9  2018 Egypt</span><br><span class="line">-rw-r--r--.  2 root root   3517 May  9  2018 Eire</span><br><span class="line">-rw-r--r--.  1 root root    118 May  9  2018 EST</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 EST5EDT</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Etc</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Europe</span><br><span class="line">-rw-r--r--.  7 root root   3661 May  9  2018 GB</span><br><span class="line">-rw-r--r--.  7 root root   3661 May  9  2018 GB-Eire</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT-0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT+0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 Greenwich</span><br><span class="line">-rw-r--r--.  2 root root   1175 May  9  2018 Hongkong</span><br><span class="line">-rw-r--r--.  1 root root    119 May  9  2018 HST</span><br><span class="line">-rw-r--r--.  2 root root   1174 May  9  2018 Iceland</span><br><span class="line">drwxr-xr-x.  2 root root    176 Jun 12  2020 Indian</span><br><span class="line">-rw-r--r--.  2 root root   1690 May  9  2018 Iran</span><br><span class="line">-rw-r--r--.  1 root root   4445 Mar  1  2017 iso3166.tab</span><br><span class="line">-rw-r--r--.  3 root root   8981 May  9  2018 Israel</span><br><span class="line">-rw-r--r--.  2 root root    481 May  9  2018 Jamaica</span><br><span class="line">-rw-r--r--.  2 root root    292 May  9  2018 Japan</span><br><span class="line">-rw-r--r--.  2 root root    219 May  9  2018 Kwajalein</span><br><span class="line">-rw-r--r--.  1 root root   2196 Jan 16  2018 leapseconds</span><br><span class="line">-rw-r--r--.  2 root root    641 May  9  2018 Libya</span><br><span class="line">-rw-r--r--.  1 root root   2102 May  9  2018 MET</span><br><span class="line">drwxr-xr-x.  2 root root     53 Jun 12  2020 Mexico</span><br><span class="line">-rw-r--r--.  1 root root    118 May  9  2018 MST</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 MST7MDT</span><br><span class="line">-rw-r--r--.  4 root root   2427 May  9  2018 Navajo</span><br><span class="line">-rw-r--r--.  4 root root   2434 May  9  2018 NZ</span><br><span class="line">-rw-r--r--.  2 root root   2047 May  9  2018 NZ-CHAT</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Pacific</span><br><span class="line">-rw-r--r--.  2 root root   2679 May  9  2018 Poland</span><br><span class="line">-rw-r--r--.  2 root root   3455 May  9  2018 Portugal</span><br><span class="line">drwxr-xr-x. 18 root root   4096 Jun 12  2020 posix</span><br><span class="line">-rw-r--r--.  3 root root   3519 May  9  2018 posixrules</span><br><span class="line">-rw-r--r--.  5 root root    388 May  9  2018 PRC</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 PST8PDT</span><br><span class="line">drwxr-xr-x. 18 root root   4096 Jun 12  2020 right</span><br><span class="line">-rw-r--r--.  2 root root    764 May  9  2018 ROC</span><br><span class="line">-rw-r--r--.  2 root root    517 May  9  2018 ROK</span><br><span class="line">-rw-r--r--.  2 root root    384 May  9  2018 Singapore</span><br><span class="line">-rw-r--r--.  3 root root   2126 May  9  2018 Turkey</span><br><span class="line">-rw-r--r--.  1 root root 106683 May  9  2018 tzdata.zi</span><br><span class="line">-rw-r--r--.  2 root root    118 May  9  2018 UCT</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 Universal</span><br><span class="line">drwxr-xr-x.  2 root root    216 Jun 12  2020 US</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 UTC</span><br><span class="line">-rw-r--r--.  1 root root   1873 May  9  2018 WET</span><br><span class="line">-rw-r--r--.  2 root root   1518 May  9  2018 W-SU</span><br><span class="line">-rw-r--r--.  1 root root  17781 Feb 17  2018 zone1970.tab</span><br><span class="line">-rw-r--r--.  1 root root  19165 Feb 17  2018 zone.tab</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 Zulu</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看时间信息</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># timedatectl status</span></span><br><span class="line">      Local time: Mon 2021-03-01 03:12:56 EST</span><br><span class="line">  Universal time: Mon 2021-03-01 08:12:56 UTC</span><br><span class="line">        RTC time: Mon 2021-03-01 08:12:57</span><br><span class="line">       Time zone: America/New_York (EST, -0500)</span><br><span class="line">     NTP enabled: yes</span><br><span class="line">NTP synchronized: yes</span><br><span class="line"> RTC <span class="keyword">in</span> <span class="built_in">local</span> TZ: no</span><br><span class="line">      DST active: no</span><br><span class="line"> Last DST change: DST ended at</span><br><span class="line">                  Sun 2020-11-01 01:59:59 EDT</span><br><span class="line">                  Sun 2020-11-01 01:00:00 EST</span><br><span class="line"> Next DST change: DST begins (the clock jumps one hour forward) at</span><br><span class="line">                  Sun 2021-03-14 01:59:59 EST</span><br><span class="line">                  Sun 2021-03-14 03:00:00 EDT</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>zabbix-agent的安装</title>
     <url>/2021/02/08/zabbix-agent%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h3 id="在CentOS下安装"><a href="#在CentOS下安装" class="headerlink" title="在CentOS下安装"></a>在CentOS下安装</h3><blockquote>
@@ -995,33 +1023,6 @@
         <tag>Linux</tag>
         <tag>CentOS</tag>
         <tag>Zabbix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何修改CentOS的时区</title>
-    <url>/2021/03/01/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9CentOS%E7%9A%84%E6%97%B6%E5%8C%BA/</url>
-    <content><![CDATA[<h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3><blockquote>
-<p>查看当前系统时区</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># ll /etc/localtime </span></span><br><span class="line">lrwxrwxrwx. 1 root root 38 Jun 12  2020 /etc/localtime -&gt; ../usr/share/zoneinfo/America/New_York</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>更改时区</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># rm /etc/localtime</span></span><br><span class="line">[root@centos7 ~]<span class="comment"># ln -s /usr/share/zoneinfo/Asia/Chongqing /etc/localtime</span></span><br></pre></td></tr></table></figure>
-<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><blockquote>
-<p>查看时区列表</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># ll /usr/share/zoneinfo/</span></span><br><span class="line">total 396</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Africa</span><br><span class="line">drwxr-xr-x.  6 root root   8192 Jun 12  2020 America</span><br><span class="line">drwxr-xr-x.  2 root root    187 Jun 12  2020 Antarctica</span><br><span class="line">drwxr-xr-x.  2 root root     26 Jun 12  2020 Arctic</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Asia</span><br><span class="line">drwxr-xr-x.  2 root root    196 Jun 12  2020 Atlantic</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Australia</span><br><span class="line">drwxr-xr-x.  2 root root     59 Jun 12  2020 Brazil</span><br><span class="line">drwxr-xr-x.  2 root root    136 Jun 12  2020 Canada</span><br><span class="line">-rw-r--r--.  1 root root   2102 May  9  2018 CET</span><br><span class="line">drwxr-xr-x.  2 root root     45 Jun 12  2020 Chile</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 CST6CDT</span><br><span class="line">-rw-r--r--.  2 root root   2411 May  9  2018 Cuba</span><br><span class="line">-rw-r--r--.  1 root root   1876 May  9  2018 EET</span><br><span class="line">-rw-r--r--.  2 root root   1946 May  9  2018 Egypt</span><br><span class="line">-rw-r--r--.  2 root root   3517 May  9  2018 Eire</span><br><span class="line">-rw-r--r--.  1 root root    118 May  9  2018 EST</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 EST5EDT</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Etc</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Europe</span><br><span class="line">-rw-r--r--.  7 root root   3661 May  9  2018 GB</span><br><span class="line">-rw-r--r--.  7 root root   3661 May  9  2018 GB-Eire</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT-0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 GMT+0</span><br><span class="line">-rw-r--r--. 10 root root    118 May  9  2018 Greenwich</span><br><span class="line">-rw-r--r--.  2 root root   1175 May  9  2018 Hongkong</span><br><span class="line">-rw-r--r--.  1 root root    119 May  9  2018 HST</span><br><span class="line">-rw-r--r--.  2 root root   1174 May  9  2018 Iceland</span><br><span class="line">drwxr-xr-x.  2 root root    176 Jun 12  2020 Indian</span><br><span class="line">-rw-r--r--.  2 root root   1690 May  9  2018 Iran</span><br><span class="line">-rw-r--r--.  1 root root   4445 Mar  1  2017 iso3166.tab</span><br><span class="line">-rw-r--r--.  3 root root   8981 May  9  2018 Israel</span><br><span class="line">-rw-r--r--.  2 root root    481 May  9  2018 Jamaica</span><br><span class="line">-rw-r--r--.  2 root root    292 May  9  2018 Japan</span><br><span class="line">-rw-r--r--.  2 root root    219 May  9  2018 Kwajalein</span><br><span class="line">-rw-r--r--.  1 root root   2196 Jan 16  2018 leapseconds</span><br><span class="line">-rw-r--r--.  2 root root    641 May  9  2018 Libya</span><br><span class="line">-rw-r--r--.  1 root root   2102 May  9  2018 MET</span><br><span class="line">drwxr-xr-x.  2 root root     53 Jun 12  2020 Mexico</span><br><span class="line">-rw-r--r--.  1 root root    118 May  9  2018 MST</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 MST7MDT</span><br><span class="line">-rw-r--r--.  4 root root   2427 May  9  2018 Navajo</span><br><span class="line">-rw-r--r--.  4 root root   2434 May  9  2018 NZ</span><br><span class="line">-rw-r--r--.  2 root root   2047 May  9  2018 NZ-CHAT</span><br><span class="line">drwxr-xr-x.  2 root root   4096 Jun 12  2020 Pacific</span><br><span class="line">-rw-r--r--.  2 root root   2679 May  9  2018 Poland</span><br><span class="line">-rw-r--r--.  2 root root   3455 May  9  2018 Portugal</span><br><span class="line">drwxr-xr-x. 18 root root   4096 Jun 12  2020 posix</span><br><span class="line">-rw-r--r--.  3 root root   3519 May  9  2018 posixrules</span><br><span class="line">-rw-r--r--.  5 root root    388 May  9  2018 PRC</span><br><span class="line">-rw-r--r--.  1 root root   2294 May  9  2018 PST8PDT</span><br><span class="line">drwxr-xr-x. 18 root root   4096 Jun 12  2020 right</span><br><span class="line">-rw-r--r--.  2 root root    764 May  9  2018 ROC</span><br><span class="line">-rw-r--r--.  2 root root    517 May  9  2018 ROK</span><br><span class="line">-rw-r--r--.  2 root root    384 May  9  2018 Singapore</span><br><span class="line">-rw-r--r--.  3 root root   2126 May  9  2018 Turkey</span><br><span class="line">-rw-r--r--.  1 root root 106683 May  9  2018 tzdata.zi</span><br><span class="line">-rw-r--r--.  2 root root    118 May  9  2018 UCT</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 Universal</span><br><span class="line">drwxr-xr-x.  2 root root    216 Jun 12  2020 US</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 UTC</span><br><span class="line">-rw-r--r--.  1 root root   1873 May  9  2018 WET</span><br><span class="line">-rw-r--r--.  2 root root   1518 May  9  2018 W-SU</span><br><span class="line">-rw-r--r--.  1 root root  17781 Feb 17  2018 zone1970.tab</span><br><span class="line">-rw-r--r--.  1 root root  19165 Feb 17  2018 zone.tab</span><br><span class="line">-rw-r--r--.  6 root root    118 May  9  2018 Zulu</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>查看时间信息</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@centos7 ~]<span class="comment"># timedatectl status</span></span><br><span class="line">      Local time: Mon 2021-03-01 03:12:56 EST</span><br><span class="line">  Universal time: Mon 2021-03-01 08:12:56 UTC</span><br><span class="line">        RTC time: Mon 2021-03-01 08:12:57</span><br><span class="line">       Time zone: America/New_York (EST, -0500)</span><br><span class="line">     NTP enabled: yes</span><br><span class="line">NTP synchronized: yes</span><br><span class="line"> RTC <span class="keyword">in</span> <span class="built_in">local</span> TZ: no</span><br><span class="line">      DST active: no</span><br><span class="line"> Last DST change: DST ended at</span><br><span class="line">                  Sun 2020-11-01 01:59:59 EDT</span><br><span class="line">                  Sun 2020-11-01 01:00:00 EST</span><br><span class="line"> Next DST change: DST begins (the clock jumps one hour forward) at</span><br><span class="line">                  Sun 2021-03-14 01:59:59 EST</span><br><span class="line">                  Sun 2021-03-14 03:00:00 EDT</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
