@@ -27,6 +27,30 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS下安装OracleJDK</title>
+    <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
+    <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
+<p>以<strong>Java SE Development Kit 8u221</strong>为例，下载地址如下：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
+<h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
+<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
+<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS下安装docker-compose记录</title>
     <url>/2019/12/22/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85docker-compose%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h3><blockquote>
@@ -55,30 +79,6 @@
         <tag>Linux</tag>
         <tag>CentOS</tag>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS下安装OracleJDK</title>
-    <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
-    <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
-<p>以<strong>Java SE Development Kit 8u221</strong>为例，下载地址如下：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
-<h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
-<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
-<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -121,6 +121,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Git配置自定义日志格式</title>
+    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>Git配置自定义日志格式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SCM</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>IDEA-Find-in-Path找不到文件的解决方法</title>
     <url>/2019/05/09/IDEA-Find-in-Path%E6%89%BE%E4%B8%8D%E5%88%B0%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<blockquote>
@@ -136,21 +151,6 @@
       </categories>
       <tags>
         <tag>IntelliJ IDEA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git配置自定义日志格式</title>
-    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<blockquote>
-<p>Git配置自定义日志格式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>SCM</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -768,6 +768,82 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2019/05/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>macOS安装oh-my-zsh记录</title>
+    <url>/2019/05/09/macOS%E5%AE%89%E8%A3%85oh-my-zsh%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="官网地址"><a href="#官网地址" class="headerlink" title="官网地址"></a>官网地址</h3><p><strong><a href="https://ohmyz.sh/">https://ohmyz.sh/</a></strong></p>
+<h3 id="macOS安装方式"><a href="#macOS安装方式" class="headerlink" title="macOS安装方式"></a>macOS安装方式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="安装结果验证"><a href="#安装结果验证" class="headerlink" title="安装结果验证"></a>安装结果验证</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zsh --version</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>正确返回结果类似：zsh 5.1.1</p>
+</blockquote>
+<h3 id="设置zsh为默认shell"><a href="#设置zsh为默认shell" class="headerlink" title="设置zsh为默认shell"></a>设置zsh为默认shell</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chsh -s $(which zsh)</span><br></pre></td></tr></table></figure>
+<h3 id="验证设置默认shell是否成功"><a href="#验证设置默认shell是否成功" class="headerlink" title="验证设置默认shell是否成功"></a>验证设置默认shell是否成功</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>正确返回结果类似：/bin/zsh</p>
+</blockquote>
+<h3 id="测试默认shell版本"><a href="#测试默认shell版本" class="headerlink" title="测试默认shell版本"></a>测试默认shell版本</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$SHELL --version</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>正确返回结果类似：zsh 5.1.1</p>
+</blockquote>
+<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><blockquote>
+<p>使用agnoster(<a href="https://github.com/agnoster/agnoster-zsh-theme">Official repository</a>)主题（macOS强烈建议使用<strong>iTerm 2 + Solarized Dark</strong>）</p>
+</blockquote>
+<h4 id="配置方式"><a href="#配置方式" class="headerlink" title="配置方式"></a>配置方式</h4><h5 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi .zshrc</span><br></pre></td></tr></table></figure>
+<h5 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="主题需要搭配的字体及安装方式"><a href="#主题需要搭配的字体及安装方式" class="headerlink" title="主题需要搭配的字体及安装方式"></a>主题需要搭配的字体及安装方式</h3><blockquote>
+<p>为了正确现实主题需要搭配该字体支持: <a href="https://github.com/Lokaltog/powerline-fonts">Powerline-patched font</a></p>
+</blockquote>
+<h4 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;powerline&#x2F;fonts.git --depth&#x3D;1</span><br><span class="line">cd fonts</span><br><span class="line">.&#x2F;install.sh</span><br><span class="line">cd ..</span><br><span class="line">rm -rf fonts</span><br></pre></td></tr></table></figure>
+<h3 id="终端字体设置"><a href="#终端字体设置" class="headerlink" title="终端字体设置"></a>终端字体设置</h3><blockquote>
+<p>打开iTerm 2的设置Preferences，选择Profiles，选择Text，选择Change Font，选择Family=Meslo LG S for Powerline，Typeface=常规体，Size=13</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>macOS</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scoop-非常好用的Windows环境下软件安装管理工具</title>
+    <url>/2021/05/06/Scoop-%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84Windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p><a href="https://scoop.sh/">官方网站</a></p>
+<h3 id="快速安装"><a href="#快速安装" class="headerlink" title="快速安装"></a>快速安装</h3><blockquote>
+<p>确保已安装PowerShell 5（或更高版本，包括PowerShell Core）和.NET Framework 4.5（或更高版本）。然后运行：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Invoke-Expression (New-Object System.Net.WebClient).DownloadString(<span class="string">&#x27;https://get.scoop.sh&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：如果出现错误，则可能需要更改执行策略（即启用Powershell），方法如下：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Set-ExecutionPolicy RemoteSigned -scope CurrentUser</span><br></pre></td></tr></table></figure>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><blockquote>
+<p>Powershell中输入<strong>scoop</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Usage: scoop &lt;<span class="built_in">command</span>&gt; [&lt;args&gt;]</span><br><span class="line"></span><br><span class="line">Some useful commands are:</span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span>       Manage scoop aliases</span><br><span class="line">bucket      Manage Scoop buckets</span><br><span class="line">cache       Show or clear the download cache</span><br><span class="line">checkup     Check <span class="keyword">for</span> potential problems</span><br><span class="line">cleanup     Cleanup apps by removing old versions</span><br><span class="line">config      Get or <span class="built_in">set</span> configuration values</span><br><span class="line">create      Create a custom app manifest</span><br><span class="line">depends     List dependencies <span class="keyword">for</span> an app</span><br><span class="line"><span class="built_in">export</span>      Exports (an importable) list of installed apps</span><br><span class="line"><span class="built_in">help</span>        Show <span class="built_in">help</span> <span class="keyword">for</span> a <span class="built_in">command</span></span><br><span class="line">hold        Hold an app to <span class="built_in">disable</span> updates</span><br><span class="line">home        Opens the app homepage</span><br><span class="line">info        Display information about an app</span><br><span class="line">install     Install apps</span><br><span class="line">list        List installed apps</span><br><span class="line">prefix      Returns the path to the specified app</span><br><span class="line">reset       Reset an app to resolve conflicts</span><br><span class="line">search      Search available apps</span><br><span class="line">status      Show status and check <span class="keyword">for</span> new app versions</span><br><span class="line">unhold      Unhold an app to <span class="built_in">enable</span> updates</span><br><span class="line">uninstall   Uninstall an app</span><br><span class="line">update      Update apps, or Scoop itself</span><br><span class="line">virustotal  Look <span class="keyword">for</span> app<span class="string">&#x27;s hash on virustotal.com</span></span><br><span class="line"><span class="string">which       Locate a shim/executable (similar to &#x27;</span><span class="built_in">which</span><span class="string">&#x27; on Linux)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Type &#x27;</span>scoop <span class="built_in">help</span> &lt;<span class="built_in">command</span>&gt;<span class="string">&#x27; to get help for a specific command.</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>shell</tag>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Zabbix安装记录</title>
     <url>/2021/02/03/Zabbix%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p>按照<a href="https://www.zabbix.com/download">官方网站</a>的流程选择合适的版本。当前使用的是<code>Zabbix Packages</code>途径安装。</p>
@@ -915,58 +991,6 @@
         <tag>Linux</tag>
         <tag>CentOS</tag>
         <tag>Zabbix</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2019/05/07/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>macOS安装oh-my-zsh记录</title>
-    <url>/2019/05/09/macOS%E5%AE%89%E8%A3%85oh-my-zsh%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h3 id="官网地址"><a href="#官网地址" class="headerlink" title="官网地址"></a>官网地址</h3><p><strong><a href="https://ohmyz.sh/">https://ohmyz.sh/</a></strong></p>
-<h3 id="macOS安装方式"><a href="#macOS安装方式" class="headerlink" title="macOS安装方式"></a>macOS安装方式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sh -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;master&#x2F;tools&#x2F;install.sh)&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="安装结果验证"><a href="#安装结果验证" class="headerlink" title="安装结果验证"></a>安装结果验证</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zsh --version</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>正确返回结果类似：zsh 5.1.1</p>
-</blockquote>
-<h3 id="设置zsh为默认shell"><a href="#设置zsh为默认shell" class="headerlink" title="设置zsh为默认shell"></a>设置zsh为默认shell</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chsh -s $(which zsh)</span><br></pre></td></tr></table></figure>
-<h3 id="验证设置默认shell是否成功"><a href="#验证设置默认shell是否成功" class="headerlink" title="验证设置默认shell是否成功"></a>验证设置默认shell是否成功</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>正确返回结果类似：/bin/zsh</p>
-</blockquote>
-<h3 id="测试默认shell版本"><a href="#测试默认shell版本" class="headerlink" title="测试默认shell版本"></a>测试默认shell版本</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$SHELL --version</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>正确返回结果类似：zsh 5.1.1</p>
-</blockquote>
-<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><blockquote>
-<p>使用agnoster(<a href="https://github.com/agnoster/agnoster-zsh-theme">Official repository</a>)主题（macOS强烈建议使用<strong>iTerm 2 + Solarized Dark</strong>）</p>
-</blockquote>
-<h4 id="配置方式"><a href="#配置方式" class="headerlink" title="配置方式"></a>配置方式</h4><h5 id="打开"><a href="#打开" class="headerlink" title="打开"></a>打开</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi .zshrc</span><br></pre></td></tr></table></figure>
-<h5 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZSH_THEME&#x3D;&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="主题需要搭配的字体及安装方式"><a href="#主题需要搭配的字体及安装方式" class="headerlink" title="主题需要搭配的字体及安装方式"></a>主题需要搭配的字体及安装方式</h3><blockquote>
-<p>为了正确现实主题需要搭配该字体支持: <a href="https://github.com/Lokaltog/powerline-fonts">Powerline-patched font</a></p>
-</blockquote>
-<h4 id="安装方式"><a href="#安装方式" class="headerlink" title="安装方式"></a>安装方式</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;powerline&#x2F;fonts.git --depth&#x3D;1</span><br><span class="line">cd fonts</span><br><span class="line">.&#x2F;install.sh</span><br><span class="line">cd ..</span><br><span class="line">rm -rf fonts</span><br></pre></td></tr></table></figure>
-<h3 id="终端字体设置"><a href="#终端字体设置" class="headerlink" title="终端字体设置"></a>终端字体设置</h3><blockquote>
-<p>打开iTerm 2的设置Preferences，选择Profiles，选择Text，选择Change Font，选择Family=Meslo LG S for Powerline，Typeface=常规体，Size=13</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>macOS</category>
-      </categories>
-      <tags>
-        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
