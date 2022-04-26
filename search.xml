@@ -15,6 +15,10 @@
 <p>进入nginx所在目录<code>/home/nginx</code></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost nginx]<span class="comment"># sbin/nginx </span></span><br><span class="line">[root@localhost nginx]<span class="comment"># ps -ef | grep nginx</span></span><br><span class="line">root     20144     1  0 15:53 ?        00:00:00 nginx: master process sbin/nginx</span><br><span class="line">nobody   20145 20144  0 15:53 ?        00:00:00 nginx: worker process</span><br><span class="line">root     20149  3899  0 15:53 pts/0    00:00:00 grep --color=auto nginx</span><br></pre></td></tr></table></figure>
+<h3 id="配置语法高亮设置"><a href="#配置语法高亮设置" class="headerlink" title="配置语法高亮设置"></a>配置语法高亮设置</h3><blockquote>
+<p>vim安装<code>yum -y install vim</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# mkdir .vim</span><br><span class="line">[root@localhost nginx-1.20.2]# cp -r contrib&#x2F;vim&#x2F;* ~&#x2F;.vim&#x2F;</span><br></pre></td></tr></table></figure>
 <h3 id="日志处理"><a href="#日志处理" class="headerlink" title="日志处理"></a>日志处理</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><blockquote>
 <p><a href="">https://goaccess.io/</a></p>
 <p>依赖包的安装<code>yum -y install libmaxminddb-devel ncurses-devel</code></p>
@@ -53,30 +57,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CentOS下安装OracleJDK</title>
-    <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
-    <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
-<p>以<strong>Java SE Development Kit 8u221</strong>为例，下载地址如下：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
-<h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
-<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
-<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS下安装Docker记录</title>
     <url>/2019/05/07/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85Docker%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="安装包的方式"><a href="#安装包的方式" class="headerlink" title="安装包的方式"></a>安装包的方式</h3><ol>
@@ -104,6 +84,30 @@
         <tag>Linux</tag>
         <tag>CentOS</tag>
         <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS下安装OracleJDK</title>
+    <url>/2019/09/29/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85OracleJDK/</url>
+    <content><![CDATA[<h3 id="获取OracleJDK"><a href="#获取OracleJDK" class="headerlink" title="获取OracleJDK"></a>获取OracleJDK</h3><blockquote>
+<p>以<strong>Java SE Development Kit 8u221</strong>为例，下载地址如下：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
+<h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
+<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
+<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -135,21 +139,6 @@
         <tag>Linux</tag>
         <tag>CentOS</tag>
         <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git配置自定义日志格式</title>
-    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<blockquote>
-<p>Git配置自定义日志格式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>SCM</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -207,6 +196,21 @@
       </categories>
       <tags>
         <tag>IntelliJ IDEA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git配置自定义日志格式</title>
+    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>Git配置自定义日志格式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SCM</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
