@@ -10,7 +10,7 @@
 <h3 id="解压并安装"><a href="#解压并安装" class="headerlink" title="解压并安装"></a>解压并安装</h3><blockquote>
 <p>依赖包的安装<code>yum -y install gcc-c++ openssl-devel pcre pcre-devel make</code></p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># tar xvf nginx-1.20.2.tar.gz</span></span><br><span class="line">[root@localhost nginx-1.20.2]<span class="comment"># ll</span></span><br><span class="line">total 792</span><br><span class="line">drwxr-xr-x. 6 1001 1001   4096 Apr 20 15:07 auto</span><br><span class="line">-rw-r--r--. 1 1001 1001 312251 Nov 16 22:44 CHANGES</span><br><span class="line">-rw-r--r--. 1 1001 1001 476577 Nov 16 22:44 CHANGES.ru</span><br><span class="line">drwxr-xr-x. 2 1001 1001    168 Apr 20 15:07 conf</span><br><span class="line">-rwxr-xr-x. 1 1001 1001   2590 Nov 16 22:44 configure</span><br><span class="line">drwxr-xr-x. 4 1001 1001     72 Apr 20 15:07 contrib</span><br><span class="line">drwxr-xr-x. 2 1001 1001     40 Apr 20 15:07 html</span><br><span class="line">-rw-r--r--. 1 1001 1001   1397 Nov 16 22:44 LICENSE</span><br><span class="line">drwxr-xr-x. 2 1001 1001     21 Apr 20 15:07 man</span><br><span class="line">-rw-r--r--. 1 1001 1001     49 Nov 16 22:44 README</span><br><span class="line">drwxr-xr-x. 9 1001 1001     91 Apr 20 15:07 src</span><br><span class="line">[root@localhost nginx-1.20.2]<span class="comment"># ./configure --prefix=/home/nginx</span></span><br><span class="line">[root@localhost nginx-1.20.2]<span class="comment"># make</span></span><br><span class="line">[root@localhost nginx-1.20.2]<span class="comment"># make install</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># tar xvf nginx-1.20.2.tar.gz</span></span><br><span class="line">[root@localhost ~]<span class="comment"># cd nginx-1.20.2</span></span><br><span class="line">[root@localhost nginx-1.20.2]<span class="comment"># ll</span></span><br><span class="line">total 792</span><br><span class="line">drwxr-xr-x. 6 1001 1001   4096 Apr 20 15:07 auto</span><br><span class="line">-rw-r--r--. 1 1001 1001 312251 Nov 16 22:44 CHANGES</span><br><span class="line">-rw-r--r--. 1 1001 1001 476577 Nov 16 22:44 CHANGES.ru</span><br><span class="line">drwxr-xr-x. 2 1001 1001    168 Apr 20 15:07 conf</span><br><span class="line">-rwxr-xr-x. 1 1001 1001   2590 Nov 16 22:44 configure</span><br><span class="line">drwxr-xr-x. 4 1001 1001     72 Apr 20 15:07 contrib</span><br><span class="line">drwxr-xr-x. 2 1001 1001     40 Apr 20 15:07 html</span><br><span class="line">-rw-r--r--. 1 1001 1001   1397 Nov 16 22:44 LICENSE</span><br><span class="line">drwxr-xr-x. 2 1001 1001     21 Apr 20 15:07 man</span><br><span class="line">-rw-r--r--. 1 1001 1001     49 Nov 16 22:44 README</span><br><span class="line">drwxr-xr-x. 9 1001 1001     91 Apr 20 15:07 src</span><br><span class="line">[root@localhost nginx-1.20.2]<span class="comment"># ./configure --prefix=/home/nginx</span></span><br><span class="line">[root@localhost nginx-1.20.2]<span class="comment"># make</span></span><br><span class="line">[root@localhost nginx-1.20.2]<span class="comment"># make install</span></span><br></pre></td></tr></table></figure>
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><blockquote>
 <p>进入nginx所在目录<code>/home/nginx</code></p>
 </blockquote>
@@ -63,6 +63,49 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS7下搭建elasticsearch集群</title>
+    <url>/2022/06/24/CentOS7%E4%B8%8B%E6%90%AD%E5%BB%BAelasticsearch%E9%9B%86%E7%BE%A4/</url>
+    <content><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.0-linux-x86_64.tar.gz</span><br><span class="line">wget https://artifacts.elastic.co/downloads/kibana/kibana-7.13.0-linux-x86_64.tar.gz</span><br><span class="line">wget https://github.com/lmenezes/cerebro/releases/download/v0.9.4/cerebro-0.9.4.tgz</span><br></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir \home\es</span><br><span class="line">mv elasticsearch-7.13.0-linux-x86_64.tar.gz \home\es</span><br><span class="line">mv kibana-7.13.0-linux-x86_64.tar.gz \home\es</span><br><span class="line">mv cerebro-0.9.4.tgz \home\es</span><br><span class="line"><span class="built_in">cd</span> \home\es</span><br><span class="line">tar xvf elasticsearch-7.13.0-linux-x86_64.tar.gz</span><br><span class="line">tar xvf kibana-7.13.0-linux-x86_64.tar.gz</span><br><span class="line">tar xvf cerebro-0.9.4.tgz</span><br><span class="line">mv elasticsearch-7.13.0 node-1</span><br><span class="line">mv kibana-7.13.0-linux-x86_64 kibana</span><br><span class="line">mv cerebro-0.9.4 cerebro</span><br></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h4><h5 id="配置es"><a href="#配置es" class="headerlink" title="配置es"></a>配置es</h5><blockquote>
+<p>节点相关配置</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cluster.name: es_cluster_1&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;node.name: node-1&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;path.data: ./data&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;path.logs: ./logs&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;http.port: 9211&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;transport.port: 9301&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;network.host: 0.0.0.0&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;discovery.seed_nodes: [\&quot;localhost:9301\&quot;]&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cluster.initial_master.nodes: [\&quot;node-1\&quot;,\&quot;node-2\&quot;,\&quot;node-3\&quot;]&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;-Xms1g&quot;</span> &gt;&gt; /home/es/node-1/config/jvm.options</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;-Xmx1g&quot;</span> &gt;&gt; /home/es/node-1/config/jvm.options</span><br></pre></td></tr></table></figure>
+<h5 id="启动es"><a href="#启动es" class="headerlink" title="启动es"></a>启动es</h5><blockquote>
+<p>es不能以root用户运行，所以先配置一个用户</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">adduser es</span><br><span class="line">chown -R es:es /home/es</span><br><span class="line">su es</span><br><span class="line">/home/es/node-1/bin/elasticsearch -d</span><br></pre></td></tr></table></figure>
+<h5 id="查看es日志"><a href="#查看es日志" class="headerlink" title="查看es日志"></a>查看es日志</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/es/node-1/logs</span><br><span class="line">less es_cluster_1.log</span><br></pre></td></tr></table></figure>
+<h4 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h4><h5 id="配置kibana"><a href="#配置kibana" class="headerlink" title="配置kibana"></a>配置kibana</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nserver.host: &quot;0.0.0.0&quot;&#x27;</span> &gt;&gt; /home/es/kibana/config/kibana.yml</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nelasticsearch.hosts: [&quot;http://localhost:9211&quot;]&#x27;</span> &gt;&gt; /home/es/kibana/config/kibana.yml</span><br></pre></td></tr></table></figure>
+<h5 id="启动kibana"><a href="#启动kibana" class="headerlink" title="启动kibana"></a>启动kibana</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/es/kibana</span><br><span class="line">./bin/kibana &gt;&gt; run.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h5 id="浏览kibana"><a href="#浏览kibana" class="headerlink" title="浏览kibana"></a>浏览kibana</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">localhost:5601</span><br></pre></td></tr></table></figure>
+<h4 id="Cerebro"><a href="#Cerebro" class="headerlink" title="Cerebro"></a>Cerebro</h4><h5 id="配置Cerebro"><a href="#配置Cerebro" class="headerlink" title="配置Cerebro"></a>配置Cerebro</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/es/cerebro</span><br><span class="line">sed -i <span class="string">&#x27;s/server.http.port = $&#123;?CEREBRO_PORT&#125;/server.http.port = 9800/g&#x27;</span> conf/application.conf</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nhosts = [</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">        host = &quot;http://localhost:9211&quot;</span></span><br><span class="line"><span class="string">        name = &quot;es_cluster_1&quot;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">]&#x27;</span> &gt;&gt; conf/application.conf</span><br></pre></td></tr></table></figure>
+<h5 id="启动Cerebro"><a href="#启动Cerebro" class="headerlink" title="启动Cerebro"></a>启动Cerebro</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./bin/cerebro &gt;&gt; run.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Develop</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>elasticsearch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS7下配置Java环境</title>
+    <url>/2022/06/24/CentOS7%E4%B8%8B%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.15%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.15_10.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar xvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.15_10.tar.gz</span><br><span class="line">mv jdk-11.0.15+10/ /home</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n&quot;</span> &gt;&gt; /etc/profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export JAVA_HOME=/home/jdk-11.0.15+10&quot;</span> &gt;&gt; /etc/profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export PATH=\$JAVA_HOME/bin:\$PATH&quot;</span> &gt;&gt; /etc/profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export CLASSPATH=.:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib/tools.jar&quot;</span> &gt;&gt; /etc/profile</span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Develop</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CentOS下安装Docker记录</title>
     <url>/2019/05/07/CentOS%E4%B8%8B%E5%AE%89%E8%A3%85Docker%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="安装包的方式"><a href="#安装包的方式" class="headerlink" title="安装包的方式"></a>安装包的方式</h3><ol>
@@ -101,12 +144,13 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br></pre></td></tr></table></figure>
 <h3 id="解压到目录"><a href="#解压到目录" class="headerlink" title="解压到目录"></a>解压到目录</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar zxvf jdk-8u151-linux-x64.tar.gz -C &#x2F;usr&#x2F;jdk</span><br></pre></td></tr></table></figure>
 <h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><blockquote>
-<p>编辑**/etc/profile**文件，在最后添加如下内容：</p>
+<p>编辑<code>/etc/profile</code>文件，在最后添加如下内容：</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME&#x3D;&#x2F;usr&#x2F;jdk&#x2F;jdk1.8.0_151</span><br><span class="line">export JRE_HOME&#x3D;$&#123;JAVA_HOME&#125;&#x2F;jre</span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA_HOME&#125;&#x2F;lib:$&#123;JRE_HOME&#125;&#x2F;lib</span><br><span class="line">export PATH&#x3D;$&#123;JAVA_HOME&#125;&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
-<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># java -version</span><br><span class="line">java version &quot;1.8.0_151&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_151-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">source &#x2F;etc&#x2F;profile</span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>java version “1.8.0_151”<br>Java(TM) SE Runtime Environment (build 1.8.0_151-b12)<br>Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -124,17 +168,21 @@
 </blockquote>
 <ol>
 <li><p>运行如下命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo curl -L &quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.25.0&#x2F;docker-compose-$(uname -s)-$(uname -m)&quot; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://github.com/docker/compose/releases/download/1.25.0/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>要安装其他版本可以替换<code>1.25.0</code></p>
+<p>国内镜像地址：</p>
 </blockquote>
-</li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -L <span class="string">&quot;https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-<span class="subst">$(uname -s)</span>-<span class="subst">$(uname -m)</span>&quot;</span> -o /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure></li>
 <li><p>赋予执行可执行权限</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo chmod +x /usr/<span class="built_in">local</span>/bin/docker-compose</span><br></pre></td></tr></table></figure></li>
 <li><p>测试安装结果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ docker-compose -v</span><br><span class="line">docker-compose version 1.25.0, build 0a186604</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose -v</span><br></pre></td></tr></table></figure>
 
-
+<blockquote>
+<p>docker-compose version 1.25.0, build 0a186604</p>
+</blockquote>
 </li>
 </ol>
 ]]></content>
@@ -187,6 +235,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Git配置自定义日志格式</title>
+    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>紧凑型日志记录</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>只显示自己提交的日志记录</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso --author&#x3D;your_name</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>只显示自己今天提交的日志记录</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso --author&#x3D;your_name --since&#x3D;midnight</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>SCM</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>IDEA-Find-in-Path找不到文件的解决方法</title>
     <url>/2019/05/09/IDEA-Find-in-Path%E6%89%BE%E4%B8%8D%E5%88%B0%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<blockquote>
@@ -202,43 +272,6 @@
       </categories>
       <tags>
         <tag>IntelliJ IDEA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git配置自定义日志格式</title>
-    <url>/2020/02/05/Git%E9%85%8D%E7%BD%AE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</url>
-    <content><![CDATA[<blockquote>
-<p>Git配置自定义日志格式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.log2 &quot;log --pretty&#x3D;format:&#39;%Cred%h%Creset %C(bold black)%p %C(bold cyan)%d%Cblue%Creset %s %Cgreen%cd %C(blue)%an%Creset&#39; --date&#x3D;iso&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>SCM</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Nginx的配置笔记</title>
-    <url>/2019/10/16/Nginx%E7%9A%84%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h3 id="配置反向代理并支持跨域请求"><a href="#配置反向代理并支持跨域请求" class="headerlink" title="配置反向代理并支持跨域请求"></a>配置反向代理并支持跨域请求</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location ^~ &#x2F;api&#x2F; &#123;</span><br><span class="line">	# Check if the origin of th request</span><br><span class="line">	set $cors &#39;on&#39;;</span><br><span class="line"></span><br><span class="line">	if ($request_method &#x3D; OPTIONS) &#123;</span><br><span class="line">		set $cors &quot;$&#123;cors&#125;_options&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	# Allow CORS on preflight request</span><br><span class="line">	if ($cors &#x3D; &#39;on_options&#39;) &#123;</span><br><span class="line">		add_header &#39;Content-Length&#39; 0;</span><br><span class="line">		add_header &#39;Content-Type&#39; &#39;text&#x2F;plain; charset&#x3D;utf-8&#39;;</span><br><span class="line">		# 跨域时允许的来源地址</span><br><span class="line">		add_header &#39;Access-Control-Allow-Origin&#39; &quot;$http_origin&quot;;</span><br><span class="line">		# 跨域时允许的请求类型</span><br><span class="line">		add_header &#39;Access-Control-Allow-Methods&#39; &#39;GET, POST, OPTIONS&#39;;</span><br><span class="line">		# 跨域时允许提交的请求头字段</span><br><span class="line">		add_header &#39;Access-Control-Allow-Headers&#39; &#39;Origin, X-Requested-With, Content-Type, Accept&#39;;</span><br><span class="line">		return 204;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	# Proxy pass to upstream</span><br><span class="line">	proxy_pass http:&#x2F;&#x2F;192.168.1.100:8080;</span><br><span class="line">	proxy_redirect     off;</span><br><span class="line">	proxy_set_header   Host $host;</span><br><span class="line">	proxy_set_header   X-Real-IP $remote_addr;</span><br><span class="line">	proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">	proxy_set_header   X-Forwarded-Host $server_name;</span><br><span class="line"></span><br><span class="line">	# Allow CORS on other requests after returning from the upstreams</span><br><span class="line">	if ($cors &#x3D; &#39;on&#39;) &#123;</span><br><span class="line">		add_header &#39;Access-Control-Allow-Origin&#39; &quot;$http_origin&quot;;</span><br><span class="line">		add_header &#39;Access-Control-Allow-Methods&#39; &#39;GET, POST, OPTIONS&#39;;</span><br><span class="line">		add_header &#39;Access-Control-Allow-Headers&#39; &#39;Origin, X-Requested-With, Content-Type, Accept&#39;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>参考地址:</p>
-<ol>
-<li><a href="https://enable-cors.org/">https://enable-cors.org</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS</a></li>
-<li><a href="https://blog.boatswain.io/post/setup-cors-in-nginx-with-proxypass-upstream/">https://blog.boatswain.io/post/setup-cors-in-nginx-with-proxypass-upstream/</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -821,6 +854,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Nginx的配置笔记</title>
+    <url>/2019/10/16/Nginx%E7%9A%84%E9%85%8D%E7%BD%AE%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="配置反向代理并支持跨域请求"><a href="#配置反向代理并支持跨域请求" class="headerlink" title="配置反向代理并支持跨域请求"></a>配置反向代理并支持跨域请求</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location ^~ &#x2F;api&#x2F; &#123;</span><br><span class="line">	# Check if the origin of th request</span><br><span class="line">	set $cors &#39;on&#39;;</span><br><span class="line"></span><br><span class="line">	if ($request_method &#x3D; OPTIONS) &#123;</span><br><span class="line">		set $cors &quot;$&#123;cors&#125;_options&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	# Allow CORS on preflight request</span><br><span class="line">	if ($cors &#x3D; &#39;on_options&#39;) &#123;</span><br><span class="line">		add_header &#39;Content-Length&#39; 0;</span><br><span class="line">		add_header &#39;Content-Type&#39; &#39;text&#x2F;plain; charset&#x3D;utf-8&#39;;</span><br><span class="line">		# 跨域时允许的来源地址</span><br><span class="line">		add_header &#39;Access-Control-Allow-Origin&#39; &quot;$http_origin&quot;;</span><br><span class="line">		# 跨域时允许的请求类型</span><br><span class="line">		add_header &#39;Access-Control-Allow-Methods&#39; &#39;GET, POST, OPTIONS&#39;;</span><br><span class="line">		# 跨域时允许提交的请求头字段</span><br><span class="line">		add_header &#39;Access-Control-Allow-Headers&#39; &#39;Origin, X-Requested-With, Content-Type, Accept&#39;;</span><br><span class="line">		return 204;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	# Proxy pass to upstream</span><br><span class="line">	proxy_pass http:&#x2F;&#x2F;192.168.1.100:8080;</span><br><span class="line">	proxy_redirect     off;</span><br><span class="line">	proxy_set_header   Host $host;</span><br><span class="line">	proxy_set_header   X-Real-IP $remote_addr;</span><br><span class="line">	proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">	proxy_set_header   X-Forwarded-Host $server_name;</span><br><span class="line"></span><br><span class="line">	# Allow CORS on other requests after returning from the upstreams</span><br><span class="line">	if ($cors &#x3D; &#39;on&#39;) &#123;</span><br><span class="line">		add_header &#39;Access-Control-Allow-Origin&#39; &quot;$http_origin&quot;;</span><br><span class="line">		add_header &#39;Access-Control-Allow-Methods&#39; &#39;GET, POST, OPTIONS&#39;;</span><br><span class="line">		add_header &#39;Access-Control-Allow-Headers&#39; &#39;Origin, X-Requested-With, Content-Type, Accept&#39;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考地址:</p>
+<ol>
+<li><a href="https://enable-cors.org/">https://enable-cors.org</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS</a></li>
+<li><a href="https://blog.boatswain.io/post/setup-cors-in-nginx-with-proxypass-upstream/">https://blog.boatswain.io/post/setup-cors-in-nginx-with-proxypass-upstream/</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>POM文件内容介绍</title>
     <url>/2019/08/23/POM%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0&quot; xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;maven.apache.org&#x2F;POM&#x2F;4.0.0 http:&#x2F;&#x2F;maven.apache.org&#x2F;xsd&#x2F;maven-4.0.0.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;&#x2F;modelVersion&gt;</span><br><span class="line">    &lt;!--组件坐标&lt;groupId&gt;&lt;artifactId&gt;&lt;version&gt;--&gt;</span><br><span class="line">    &lt;groupId&gt;cn.realdev&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;pattern-demo&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;name&gt;pattern-demo&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;url&gt;http:&#x2F;&#x2F;www.example.com&lt;&#x2F;url&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--自定义属性变量--&gt;</span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.7&lt;&#x2F;maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.7&lt;&#x2F;maven.compiler.target&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;&#x2F;project.build.sourceEncoding&gt;</span><br><span class="line">    &lt;&#x2F;properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--当前组件的依赖组件--&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;&#x2F;groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;&#x2F;artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.11&lt;&#x2F;version&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;&#x2F;scope&gt;</span><br><span class="line">        &lt;&#x2F;dependency&gt;</span><br><span class="line">    &lt;&#x2F;dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--远程仓库列表--&gt;</span><br><span class="line">    &lt;repositories&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;snapshots&gt;</span><br><span class="line">                &lt;enabled&gt;false&lt;&#x2F;enabled&gt;</span><br><span class="line">            &lt;&#x2F;snapshots&gt;</span><br><span class="line">            &lt;id&gt;aliyun-repos&lt;&#x2F;id&gt;</span><br><span class="line">            &lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">        &lt;&#x2F;repository&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;snapshots&gt;</span><br><span class="line">                &lt;enabled&gt;false&lt;&#x2F;enabled&gt;</span><br><span class="line">            &lt;&#x2F;snapshots&gt;</span><br><span class="line">            &lt;id&gt;jcenter&lt;&#x2F;id&gt;</span><br><span class="line">            &lt;url&gt;http:&#x2F;&#x2F;jcenter.bintray.com&lt;&#x2F;url&gt;</span><br><span class="line">        &lt;&#x2F;repository&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;snapshots&gt;</span><br><span class="line">                &lt;enabled&gt;false&lt;&#x2F;enabled&gt;</span><br><span class="line">            &lt;&#x2F;snapshots&gt;</span><br><span class="line">            &lt;id&gt;central&lt;&#x2F;id&gt;</span><br><span class="line">            &lt;name&gt;Central Repository&lt;&#x2F;name&gt;</span><br><span class="line">            &lt;url&gt;https:&#x2F;&#x2F;repo.maven.apache.org&#x2F;maven2&lt;&#x2F;url&gt;</span><br><span class="line">        &lt;&#x2F;repository&gt;</span><br><span class="line">    &lt;&#x2F;repositories&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--插件仓库列表--&gt;</span><br><span class="line">    &lt;pluginRepositories&gt;</span><br><span class="line">        &lt;pluginRepository&gt;</span><br><span class="line">            &lt;releases&gt;</span><br><span class="line">                &lt;updatePolicy&gt;never&lt;&#x2F;updatePolicy&gt;</span><br><span class="line">            &lt;&#x2F;releases&gt;</span><br><span class="line">            &lt;snapshots&gt;</span><br><span class="line">                &lt;enabled&gt;false&lt;&#x2F;enabled&gt;</span><br><span class="line">            &lt;&#x2F;snapshots&gt;</span><br><span class="line">            &lt;id&gt;central&lt;&#x2F;id&gt;</span><br><span class="line">            &lt;name&gt;Central Repository&lt;&#x2F;name&gt;</span><br><span class="line">            &lt;url&gt;https:&#x2F;&#x2F;repo.maven.apache.org&#x2F;maven2&lt;&#x2F;url&gt;</span><br><span class="line">        &lt;&#x2F;pluginRepository&gt;</span><br><span class="line">    &lt;&#x2F;pluginRepositories&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--与构建相关的配置--&gt;</span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;sourceDirectory&gt;D:\pattern-demo\src\main\java&lt;&#x2F;sourceDirectory&gt;</span><br><span class="line">        &lt;scriptSourceDirectory&gt;D:\pattern-demo\src\main\scripts&lt;&#x2F;scriptSourceDirectory&gt;</span><br><span class="line">        &lt;testSourceDirectory&gt;D:\pattern-demo\src\test\java&lt;&#x2F;testSourceDirectory&gt;</span><br><span class="line">        &lt;outputDirectory&gt;D:\pattern-demo\target\classes&lt;&#x2F;outputDirectory&gt;</span><br><span class="line">        &lt;testOutputDirectory&gt;D:\pattern-demo\target\test-classes&lt;&#x2F;testOutputDirectory&gt;</span><br><span class="line">        &lt;resources&gt;</span><br><span class="line">            &lt;resource&gt;</span><br><span class="line">                &lt;directory&gt;D:\pattern-demo\src\main\resources&lt;&#x2F;directory&gt;</span><br><span class="line">            &lt;&#x2F;resource&gt;</span><br><span class="line">        &lt;&#x2F;resources&gt;</span><br><span class="line">        &lt;testResources&gt;</span><br><span class="line">            &lt;testResource&gt;</span><br><span class="line">                &lt;directory&gt;D:\pattern-demo\src\test\resources&lt;&#x2F;directory&gt;</span><br><span class="line">            &lt;&#x2F;testResource&gt;</span><br><span class="line">        &lt;&#x2F;testResources&gt;</span><br><span class="line">        &lt;directory&gt;D:\pattern-demo\target&lt;&#x2F;directory&gt;</span><br><span class="line">        &lt;finalName&gt;pattern-demo-1.0-SNAPSHOT&lt;&#x2F;finalName&gt;</span><br><span class="line">        &lt;pluginManagement&gt;</span><br><span class="line">            &lt;plugins&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-antrun-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;1.3&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-assembly-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;2.2-beta-5&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-dependency-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;2.8&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-release-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;2.5.3&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-clean-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;3.1.0&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-resources-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;3.0.2&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-compiler-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;3.8.0&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-surefire-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;2.22.1&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-jar-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;3.0.2&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-install-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;2.5.2&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-deploy-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;2.8.2&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-site-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;3.7.1&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">                &lt;plugin&gt;</span><br><span class="line">                    &lt;artifactId&gt;maven-project-info-reports-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                    &lt;version&gt;3.0.0&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;&#x2F;plugin&gt;</span><br><span class="line">            &lt;&#x2F;plugins&gt;</span><br><span class="line">        &lt;&#x2F;pluginManagement&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-clean-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.1.0&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-clean&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;clean&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;clean&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                &lt;&#x2F;executions&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-resources-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.0.2&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-testResources&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;process-test-resources&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;testResources&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-resources&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;process-resources&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;resources&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                &lt;&#x2F;executions&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-jar-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.0.2&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-jar&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;package&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;jar&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                &lt;&#x2F;executions&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-compiler-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.8.0&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-compile&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;compile&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;compile&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-testCompile&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;test-compile&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;testCompile&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                &lt;&#x2F;executions&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-surefire-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;version&gt;2.22.1&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-test&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;test&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;test&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                &lt;&#x2F;executions&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-install-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;version&gt;2.5.2&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-install&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;install&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;install&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                &lt;&#x2F;executions&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-deploy-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;version&gt;2.8.2&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-deploy&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;deploy&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;deploy&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                &lt;&#x2F;executions&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-site-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                &lt;version&gt;3.7.1&lt;&#x2F;version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-site&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;site&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;site&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                        &lt;configuration&gt;</span><br><span class="line">                            &lt;outputDirectory&gt;D:\pattern-demo\target\site&lt;&#x2F;outputDirectory&gt;</span><br><span class="line">                            &lt;reportPlugins&gt;</span><br><span class="line">                                &lt;reportPlugin&gt;</span><br><span class="line">                                    &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">                                    &lt;artifactId&gt;maven-project-info-reports-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                                &lt;&#x2F;reportPlugin&gt;</span><br><span class="line">                            &lt;&#x2F;reportPlugins&gt;</span><br><span class="line">                        &lt;&#x2F;configuration&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;id&gt;default-deploy&lt;&#x2F;id&gt;</span><br><span class="line">                        &lt;phase&gt;site-deploy&lt;&#x2F;phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;deploy&lt;&#x2F;goal&gt;</span><br><span class="line">                        &lt;&#x2F;goals&gt;</span><br><span class="line">                        &lt;configuration&gt;</span><br><span class="line">                            &lt;outputDirectory&gt;D:\pattern-demo\target\site&lt;&#x2F;outputDirectory&gt;</span><br><span class="line">                            &lt;reportPlugins&gt;</span><br><span class="line">                                &lt;reportPlugin&gt;</span><br><span class="line">                                    &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">                                    &lt;artifactId&gt;maven-project-info-reports-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                                &lt;&#x2F;reportPlugin&gt;</span><br><span class="line">                            &lt;&#x2F;reportPlugins&gt;</span><br><span class="line">                        &lt;&#x2F;configuration&gt;</span><br><span class="line">                    &lt;&#x2F;execution&gt;</span><br><span class="line">                &lt;&#x2F;executions&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;outputDirectory&gt;D:\pattern-demo\target\site&lt;&#x2F;outputDirectory&gt;</span><br><span class="line">                    &lt;reportPlugins&gt;</span><br><span class="line">                        &lt;reportPlugin&gt;</span><br><span class="line">                            &lt;groupId&gt;org.apache.maven.plugins&lt;&#x2F;groupId&gt;</span><br><span class="line">                            &lt;artifactId&gt;maven-project-info-reports-plugin&lt;&#x2F;artifactId&gt;</span><br><span class="line">                        &lt;&#x2F;reportPlugin&gt;</span><br><span class="line">                    &lt;&#x2F;reportPlugins&gt;</span><br><span class="line">                &lt;&#x2F;configuration&gt;</span><br><span class="line">            &lt;&#x2F;plugin&gt;</span><br><span class="line">        &lt;&#x2F;plugins&gt;</span><br><span class="line">    &lt;&#x2F;build&gt;</span><br><span class="line"></span><br><span class="line">    &lt;reporting&gt;</span><br><span class="line">        &lt;outputDirectory&gt;D:\pattern-demo\target\site&lt;&#x2F;outputDirectory&gt;</span><br><span class="line">    &lt;&#x2F;reporting&gt;</span><br><span class="line">&lt;&#x2F;project&gt;</span><br></pre></td></tr></table></figure>
@@ -831,6 +886,35 @@
       <tags>
         <tag>Java</tag>
         <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSH配置记录</title>
+    <url>/2022/10/30/SSH%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="以密钥方式登录"><a href="#以密钥方式登录" class="headerlink" title="以密钥方式登录"></a>以密钥方式登录</h3><h4 id="生成密钥对"><a href="#生成密钥对" class="headerlink" title="生成密钥对"></a>生成密钥对</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -f id_zhangsan -C zhangsan</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>-t</code> 密钥对算法 dsa | ecdsa | ed25519 | rsa</p>
+<p><code>-b</code> 密钥位数</p>
+<p><code>-f</code> 输出文件密钥对文件名</p>
+<p><code>-C</code> 备注信息</p>
+</blockquote>
+<h4 id="写入服务器"><a href="#写入服务器" class="headerlink" title="写入服务器"></a>写入服务器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-copy-id -i id_zhangsan -p 1234 root@host.zhangsan.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>-i</code> 私钥文件名</p>
+<p><code>-p</code> 端口</p>
+</blockquote>
+<h4 id="关闭密码方式登录"><a href="#关闭密码方式登录" class="headerlink" title="关闭密码方式登录"></a>关闭密码方式登录</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>修改<code>PasswordAuthentication</code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -p 1234 -i id_zhangsan root@host.zhangsan.com</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
       </tags>
   </entry>
   <entry>
@@ -856,6 +940,20 @@
         <tag>shell</tag>
         <tag>tools</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/05/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Zabbix安装记录</title>
@@ -1008,20 +1106,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/05/07/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>macOS安装oh-my-zsh记录</title>
     <url>/2019/05/09/macOS%E5%AE%89%E8%A3%85oh-my-zsh%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="官网地址"><a href="#官网地址" class="headerlink" title="官网地址"></a>官网地址</h3><p><strong><a href="https://ohmyz.sh/">https://ohmyz.sh/</a></strong></p>
@@ -1125,9 +1209,9 @@
 <p><code>Asia/Shanghai</code>可以通过<code>ls -la /etc/localtime</code>获取</p>
 </blockquote>
 <h5 id="随容器自动启动"><a href="#随容器自动启动" class="headerlink" title="随容器自动启动"></a>随容器自动启动</h5><blockquote>
-<p>方式一：通过映射目录方式挂载目录（同时应用宿主的时区）</p>
+<p>方式一：通过映射目录方式挂载目录（同时应用宿主的时区；sql_mode配置；）</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --restart&#x3D;always --name mysql-dev \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;mysql&#x2F;0&#x2F;db:&#x2F;var&#x2F;lib&#x2F;mysql \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;mysql&#x2F;0&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d \</span><br><span class="line">-v &#x2F;etc&#x2F;timezone:&#x2F;etc&#x2F;timezone:ro \</span><br><span class="line">-v &#x2F;etc&#x2F;localtime:&#x2F;etc&#x2F;localtime:ro \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD&#x3D;$&#123;ROOT_PASSWORD&#125; -d -p $&#123;HOST_IP&#125;:$&#123;HOST_PORT&#125;:$&#123;DOCKER_PORT&#125; mysql:5.7.33</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --restart&#x3D;always --name mysql-dev \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;mysql&#x2F;0&#x2F;db:&#x2F;var&#x2F;lib&#x2F;mysql \</span><br><span class="line">-v &#x2F;data&#x2F;docker&#x2F;instance&#x2F;mysql&#x2F;0&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d \</span><br><span class="line">-v &#x2F;etc&#x2F;timezone:&#x2F;etc&#x2F;timezone:ro \</span><br><span class="line">-v &#x2F;etc&#x2F;localtime:&#x2F;etc&#x2F;localtime:ro \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD&#x3D;$&#123;ROOT_PASSWORD&#125; -d -p $&#123;HOST_IP&#125;:$&#123;HOST_PORT&#125;:$&#123;DOCKER_PORT&#125; mysql:5.7.33 --sql-mode&#x3D;NO_ENGINE_SUBSTITUTION</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>方式二：通过卷的方式挂载目录</p>
 </blockquote>
@@ -1140,8 +1224,7 @@
 </blockquote>
 <h5 id="编辑文件"><a href="#编辑文件" class="headerlink" title="编辑文件"></a>编辑文件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi my.cnf</span><br></pre></td></tr></table></figure>
 <h5 id="修改内容"><a href="#修改内容" class="headerlink" title="修改内容"></a>修改内容</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[client]</span><br><span class="line">default-character-set&#x3D;utf8mb4</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set&#x3D;utf8mb4</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">sql_mode&#x3D;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br><span class="line">lower_case_table_names &#x3D; 1</span><br><span class="line">character-set-client-handshake&#x3D;FALSE</span><br><span class="line">character-set-server&#x3D;utf8mb4</span><br><span class="line">collation-server&#x3D;utf8mb4_unicode_ci</span><br><span class="line">init_connect&#x3D;&#39;SET NAMES utf8mb4&#39;</span><br><span class="line">skip-host-cache</span><br><span class="line">skip-name-resolve</span><br></pre></td></tr></table></figure>
-<h4 id="重启容易使配置生效"><a href="#重启容易使配置生效" class="headerlink" title="重启容易使配置生效"></a>重启容易使配置生效</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker restart mysql</span><br></pre></td></tr></table></figure>
-]]></content>
+<h4 id="重启容易使配置生效"><a href="#重启容易使配置生效" class="headerlink" title="重启容易使配置生效"></a>重启容易使配置生效</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker restart mysql</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>DevOps</category>
       </categories>
@@ -1150,6 +1233,38 @@
         <tag>CentOS</tag>
         <tag>Docker</tag>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在Docker中运行nexus</title>
+    <url>/2022/01/28/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnexus/</url>
+    <content><![CDATA[<h4 id="nexus的安装"><a href="#nexus的安装" class="headerlink" title="nexus的安装"></a>nexus的安装</h4><h5 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /data/docker/instance/nexus/0/nexus-data &amp;&amp; chown -R 200 /data/docker/instance/nexus/0/nexus-data</span><br><span class="line">docker run -d -p 8081:8081 --name nexus_0 -v /data/docker/instance/nexus/0/nexus-data:/sonatype-work sonatype/nexus</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>访问地址<code>http://localhost:8081/nexus</code></p>
+<p>管理员登录<code>admin</code>/<code>admin123</code></p>
+</blockquote>
+<h5 id="测试验证"><a href="#测试验证" class="headerlink" title="测试验证"></a>测试验证</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl http://localhost:8081/nexus/service/<span class="built_in">local</span>/status</span><br></pre></td></tr></table></figure>
+<h5 id="忘记密码处理"><a href="#忘记密码处理" class="headerlink" title="忘记密码处理"></a>忘记密码处理</h5><blockquote>
+<p>删除或移除<code>nexus-data/conf</code>目录下面的<code>security.xml</code>和<code>security-configuration.xml</code>文件，并重启实例。以<code>admin</code>/<code>admin123</code>登录。</p>
+</blockquote>
+<h4 id="nexus3的安装"><a href="#nexus3的安装" class="headerlink" title="nexus3的安装"></a>nexus3的安装</h4><h5 id="执行命令-1"><a href="#执行命令-1" class="headerlink" title="执行命令"></a>执行命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /data/docker/instance/nexus/0/nexus-data &amp;&amp; chown -R 200 /data/docker/instance/nexus/0/nexus-data</span><br><span class="line">docker run -d -p 8081:8081 --restart=always --name nexus_0 -v /data/docker/instance/nexus/0/nexus-data:/nexus-data sonatype/nexus3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>管理员登录<code>admin</code>，随机密码位于<code>nexus-data/admin.password</code>文件内</p>
+</blockquote>
+<h5 id="测试验证-1"><a href="#测试验证-1" class="headerlink" title="测试验证"></a>测试验证</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl http://localhost:8081/</span><br></pre></td></tr></table></figure>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><ul>
+<li><a href="https://hub.docker.com/r/sonatype/nexus">https://hub.docker.com/r/sonatype/nexus</a></li>
+<li><a href="https://hub.docker.com/r/sonatype/nexus3">https://hub.docker.com/r/sonatype/nexus3</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>Docker</tag>
+        <tag>nexus</tag>
       </tags>
   </entry>
   <entry>
@@ -1174,35 +1289,6 @@
         <tag>CentOS</tag>
         <tag>Docker</tag>
         <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在Docker中运行nexus</title>
-    <url>/2022/01/28/%E5%A6%82%E4%BD%95%E5%9C%A8Docker%E4%B8%AD%E8%BF%90%E8%A1%8Cnexus/</url>
-    <content><![CDATA[<h4 id="nexus的安装"><a href="#nexus的安装" class="headerlink" title="nexus的安装"></a>nexus的安装</h4><h5 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /data/docker/instance/nexus/0/nexus-data &amp;&amp; chown -R 200 /data/docker/instance/nexus/0/nexus-data</span><br><span class="line">docker run -d -p 8081:8081 --name nexus_0 -v /data/docker/instance/nexus/0/nexus-data:/sonatype-work sonatype/nexus</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>访问地址<code>http://localhost:8081/nexus</code></p>
-<p>管理员登录<code>admin</code>/<code>admin123</code></p>
-</blockquote>
-<h5 id="测试验证"><a href="#测试验证" class="headerlink" title="测试验证"></a>测试验证</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl http://localhost:8081/nexus/service/<span class="built_in">local</span>/status</span><br></pre></td></tr></table></figure>
-<h4 id="nexus3的安装"><a href="#nexus3的安装" class="headerlink" title="nexus3的安装"></a>nexus3的安装</h4><h5 id="执行命令-1"><a href="#执行命令-1" class="headerlink" title="执行命令"></a>执行命令</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /data/docker/instance/nexus/0/nexus-data &amp;&amp; chown -R 200 /data/docker/instance/nexus/0/nexus-data</span><br><span class="line">docker run -d -p 8081:8081 --restart=always --name nexus_0 -v /data/docker/instance/nexus/0/nexus-data:/nexus-data sonatype/nexus3</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>管理员登录<code>admin</code>，随机密码位于<code>nexus-data/admin.password</code>文件内</p>
-</blockquote>
-<h5 id="测试验证-1"><a href="#测试验证-1" class="headerlink" title="测试验证"></a>测试验证</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl http://localhost:8081/</span><br></pre></td></tr></table></figure>
-<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><ul>
-<li><a href="https://hub.docker.com/r/sonatype/nexus">https://hub.docker.com/r/sonatype/nexus</a></li>
-<li><a href="https://hub.docker.com/r/sonatype/nexus3">https://hub.docker.com/r/sonatype/nexus3</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>Docker</tag>
-        <tag>nexus</tag>
       </tags>
   </entry>
   <entry>

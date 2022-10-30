@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.realdev.cn","root":"/","images":"/images","scheme":"Gemini","version":"8.2.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="CentOS7下搭建elasticsearch集群..">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7下搭建elasticsearch集群">
+<meta property="og:url" content="https://blog.realdev.cn/2022/06/24/CentOS7%E4%B8%8B%E6%90%AD%E5%BB%BAelasticsearch%E9%9B%86%E7%BE%A4/index.html">
+<meta property="og:site_name" content="REALDEV">
+<meta property="og:description" content="CentOS7下搭建elasticsearch集群..">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-24T08:31:44.000Z">
+<meta property="article:modified_time" content="2022-10-30T12:00:35.071Z">
+<meta property="article:author" content="Jacky">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="CentOS">
+<meta property="article:tag" content="elasticsearch">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.realdev.cn/2022/06/24/CentOS7%E4%B8%8B%E6%90%AD%E5%BB%BAelasticsearch%E9%9B%86%E7%BE%A4/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>CentOS7下搭建elasticsearch集群 | REALDEV</title>
+  
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dc886ae040c1ac44f364885df0ae4e4c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">REALDEV</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B"><span class="nav-number">2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Elasticsearch"><span class="nav-number">3.1.</span> <span class="nav-text">Elasticsearch</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEes"><span class="nav-number">3.1.1.</span> <span class="nav-text">配置es</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8es"><span class="nav-number">3.1.2.</span> <span class="nav-text">启动es</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8Bes%E6%97%A5%E5%BF%97"><span class="nav-number">3.1.3.</span> <span class="nav-text">查看es日志</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kibana"><span class="nav-number">3.2.</span> <span class="nav-text">Kibana</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEkibana"><span class="nav-number">3.2.1.</span> <span class="nav-text">配置kibana</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8kibana"><span class="nav-number">3.2.2.</span> <span class="nav-text">启动kibana</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88kibana"><span class="nav-number">3.2.3.</span> <span class="nav-text">浏览kibana</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cerebro"><span class="nav-number">3.3.</span> <span class="nav-text">Cerebro</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AECerebro"><span class="nav-number">3.3.1.</span> <span class="nav-text">配置Cerebro</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8Cerebro"><span class="nav-number">3.3.2.</span> <span class="nav-text">启动Cerebro</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jacky</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.realdev.cn/2022/06/24/CentOS7%E4%B8%8B%E6%90%AD%E5%BB%BAelasticsearch%E9%9B%86%E7%BE%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jacky">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="REALDEV">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CentOS7下搭建elasticsearch集群
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-24 16:31:44" itemprop="dateCreated datePublished" datetime="2022-06-24T16:31:44+08:00">2022-06-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-10-30 20:00:35" itemprop="dateModified" datetime="2022-10-30T20:00:35+08:00">2022-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Develop/" itemprop="url" rel="index"><span itemprop="name">Develop</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">CentOS7下搭建elasticsearch集群..</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.0-linux-x86_64.tar.gz</span><br><span class="line">wget https://artifacts.elastic.co/downloads/kibana/kibana-7.13.0-linux-x86_64.tar.gz</span><br><span class="line">wget https://github.com/lmenezes/cerebro/releases/download/v0.9.4/cerebro-0.9.4.tgz</span><br></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir \home\es</span><br><span class="line">mv elasticsearch-7.13.0-linux-x86_64.tar.gz \home\es</span><br><span class="line">mv kibana-7.13.0-linux-x86_64.tar.gz \home\es</span><br><span class="line">mv cerebro-0.9.4.tgz \home\es</span><br><span class="line"><span class="built_in">cd</span> \home\es</span><br><span class="line">tar xvf elasticsearch-7.13.0-linux-x86_64.tar.gz</span><br><span class="line">tar xvf kibana-7.13.0-linux-x86_64.tar.gz</span><br><span class="line">tar xvf cerebro-0.9.4.tgz</span><br><span class="line">mv elasticsearch-7.13.0 node-1</span><br><span class="line">mv kibana-7.13.0-linux-x86_64 kibana</span><br><span class="line">mv cerebro-0.9.4 cerebro</span><br></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h4><h5 id="配置es"><a href="#配置es" class="headerlink" title="配置es"></a>配置es</h5><blockquote>
+<p>节点相关配置</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\n&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cluster.name: es_cluster_1&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;node.name: node-1&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;path.data: ./data&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;path.logs: ./logs&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;http.port: 9211&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;transport.port: 9301&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;network.host: 0.0.0.0&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;discovery.seed_nodes: [\&quot;localhost:9301\&quot;]&quot;</span> &gt;&gt; /home/es/node-1/config/elasticsearch.yml</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;cluster.initial_master.nodes: [\&quot;node-1\&quot;,\&quot;node-2\&quot;,\&quot;node-3\&quot;]&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;-Xms1g&quot;</span> &gt;&gt; /home/es/node-1/config/jvm.options</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;-Xmx1g&quot;</span> &gt;&gt; /home/es/node-1/config/jvm.options</span><br></pre></td></tr></table></figure>
+<h5 id="启动es"><a href="#启动es" class="headerlink" title="启动es"></a>启动es</h5><blockquote>
+<p>es不能以root用户运行，所以先配置一个用户</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adduser es</span><br><span class="line">chown -R es:es /home/es</span><br><span class="line">su es</span><br><span class="line">/home/es/node-1/bin/elasticsearch -d</span><br></pre></td></tr></table></figure>
+<h5 id="查看es日志"><a href="#查看es日志" class="headerlink" title="查看es日志"></a>查看es日志</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/es/node-1/logs</span><br><span class="line">less es_cluster_1.log</span><br></pre></td></tr></table></figure>
+<h4 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h4><h5 id="配置kibana"><a href="#配置kibana" class="headerlink" title="配置kibana"></a>配置kibana</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nserver.host: &quot;0.0.0.0&quot;&#x27;</span> &gt;&gt; /home/es/kibana/config/kibana.yml</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nelasticsearch.hosts: [&quot;http://localhost:9211&quot;]&#x27;</span> &gt;&gt; /home/es/kibana/config/kibana.yml</span><br></pre></td></tr></table></figure>
+<h5 id="启动kibana"><a href="#启动kibana" class="headerlink" title="启动kibana"></a>启动kibana</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/es/kibana</span><br><span class="line">./bin/kibana &gt;&gt; run.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h5 id="浏览kibana"><a href="#浏览kibana" class="headerlink" title="浏览kibana"></a>浏览kibana</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:5601</span><br></pre></td></tr></table></figure>
+<h4 id="Cerebro"><a href="#Cerebro" class="headerlink" title="Cerebro"></a>Cerebro</h4><h5 id="配置Cerebro"><a href="#配置Cerebro" class="headerlink" title="配置Cerebro"></a>配置Cerebro</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/es/cerebro</span><br><span class="line">sed -i <span class="string">&#x27;s/server.http.port = $&#123;?CEREBRO_PORT&#125;/server.http.port = 9800/g&#x27;</span> conf/application.conf</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&#x27;\nhosts = [</span></span><br><span class="line"><span class="string">    &#123;</span></span><br><span class="line"><span class="string">        host = &quot;http://localhost:9211&quot;</span></span><br><span class="line"><span class="string">        name = &quot;es_cluster_1&quot;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">]&#x27;</span> &gt;&gt; conf/application.conf</span><br></pre></td></tr></table></figure>
+<h5 id="启动Cerebro"><a href="#启动Cerebro" class="headerlink" title="启动Cerebro"></a>启动Cerebro</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/cerebro &gt;&gt; run.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Jacky
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://blog.realdev.cn/2022/06/24/CentOS7%E4%B8%8B%E6%90%AD%E5%BB%BAelasticsearch%E9%9B%86%E7%BE%A4/" title="CentOS7下搭建elasticsearch集群">https://blog.realdev.cn/2022/06/24/CentOS7下搭建elasticsearch集群/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/CentOS/" rel="tag"># CentOS</a>
+              <a href="/tags/elasticsearch/" rel="tag"># elasticsearch</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/24/CentOS7%E4%B8%8B%E9%85%8D%E7%BD%AEJava%E7%8E%AF%E5%A2%83/" rel="prev" title="CentOS7下配置Java环境">
+                  <i class="fa fa-chevron-left"></i> CentOS7下配置Java环境
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/10/30/SSH%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/" rel="next" title="SSH配置记录">
+                  SSH配置记录 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jacky</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">132k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:01</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
